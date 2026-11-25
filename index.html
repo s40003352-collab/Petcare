@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PetCare — Забота о питомцах в одном месте</title>
-  <meta name="description" content="PetCare — современный центр заботы о домашних животных: ветеринария, вакцинация, консультации специалистов, груминг и магазин проверенных товаров для собак и кошек." />
-  <meta name="keywords" content="PetCare, ветеринарная клиника, уход за животными, груминг собак и кошек, вакцинация питомцев, товары для животных, запись к ветеринару" />
+  <meta name="description" content="PetCare — современный центр заботы о домашних животных в Казахстане: ветеринария, вакцинация, консультации специалистов, груминг и магазин проверенных товаров для собак и кошек." />
+  <meta name="keywords" content="PetCare, ветеринарный центр Казахстан, уход за животными, груминг собак и кошек, вакцинация питомцев, товары для животных, онлайн-запись к ветеринару" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#3B6E52" />
 
@@ -145,6 +145,14 @@
       transform: scale(1.04);
     }
 
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
     .custom-scroll::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -175,36 +183,36 @@
     }
   </style>
 </head>
-<body class="bg-cream-50 text-ink-900 antialiased selection:bg-sage-200 selection:text-ink-900">
+<body class="bg-cream-50 text-ink-900 antialiased selection:bg-sage-200 selection:text-ink-900 pb-20 sm:pb-0">
 
   <!-- Top Announcement Strip -->
   <div class="bg-sage-700 text-cream-50 text-xs sm:text-sm py-2 px-4">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <p class="flex items-center gap-2 font-medium">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-300"></span>
-        <span>PetCare — Забота о питомцах в одном месте • Ежедневно 08:00–22:00</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-300 shrink-0"></span>
+        <span>PetCare Казахстан — Забота о питомцах в одном месте • 08:00–22:00</span>
       </p>
       <p class="text-cream-100/90">
-        Бесплатная доставка товаров от <strong class="text-white">3 000 ₽</strong> • Первичный осмотр без стресса
+        Бесплатная доставка товаров от <strong class="text-white">15 000 ₸</strong> • Осмотр без стресса
       </p>
     </div>
   </div>
 
   <!-- Header / Navigation -->
   <header id="top" class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-3">
       <!-- Brand Logo -->
-      <a href="#hero" class="flex items-center gap-3 group shrink-0" aria-label="PetCare — На главную">
-        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-sage-600 text-white flex items-center justify-center shadow-soft group-hover:bg-sage-700 transition">
+      <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group min-w-0" aria-label="PetCare — На главную">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-sage-600 text-white flex items-center justify-center shadow-soft group-hover:bg-sage-700 transition shrink-0">
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 13.2c-2.6 0-4.9 1.6-5.7 3.8-.5 1.4.5 2.8 2 2.8h7.4c1.5 0 2.5-1.4 2-2.8-.8-2.2-3.1-3.8-5.7-3.8zm-5.2-3.7c1.1 0 2-1.1 2-2.4S7.9 4.7 6.8 4.7s-2 1.1-2 2.4.9 2.4 2 2.4zm3.5-1.4c1.1 0 2-1.2 2-2.6S11.4 3.7 10.3 3.7s-2 1.2-2 2.6.9 1.8 2 1.8zm3.4 0c1.1 0 2-.8 2-1.8s-.9-2.6-2-2.6-2 1.2-2 2.6.9 2.6 2 2.6zm3.5 1.4c1.1 0 2-1.1 2-2.4s-.9-2.4-2-2.4-2 1.1-2 2.4.9 2.4 2 2.4z"/>
           </svg>
         </div>
-        <div>
+        <div class="min-w-0">
           <span class="block font-display font-extrabold text-lg sm:text-xl tracking-tight text-ink-900 leading-none">
             PetCare
           </span>
-          <span class="block text-[11px] sm:text-xs text-ink-500 mt-0.5 leading-tight">
+          <span class="block text-[11px] sm:text-xs text-ink-500 mt-0.5 leading-tight truncate">
             Забота о питомцах в одном месте
           </span>
         </div>
@@ -213,18 +221,19 @@
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-ink-700" aria-label="Основная навигация">
         <a href="#services" class="hover:text-sage-600 transition py-1">Наши услуги</a>
-        <a href="#shop" class="hover:text-sage-600 transition py-1">Популярные товары</a>
-        <a href="#specialists" class="hover:text-sage-600 transition py-1">Наши специалисты</a>
+        <a href="#appointment" class="hover:text-sage-600 transition py-1">Запись на прием</a>
+        <a href="#shop" class="hover:text-sage-600 transition py-1">Каталог товаров</a>
+        <a href="#specialists" class="hover:text-sage-600 transition py-1">Ветеринары</a>
         <a href="#reviews" class="hover:text-sage-600 transition py-1">Отзывы</a>
         <a href="#contacts" class="hover:text-sage-600 transition py-1">Контакты</a>
       </nav>
 
       <!-- Header Actions -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <button
           type="button"
           onclick="openCartDrawer()"
-          class="relative inline-flex items-center gap-2 rounded-full bg-cream-100 hover:bg-sage-100 text-ink-900 border border-cream-200 hover:border-sage-200 px-3.5 py-2.5 text-sm font-semibold transition cursor-pointer"
+          class="relative inline-flex items-center gap-2 rounded-full bg-cream-100 hover:bg-sage-100 text-ink-900 border border-cream-200 hover:border-sage-200 px-3 sm:px-3.5 py-2.5 text-sm font-semibold transition cursor-pointer"
           aria-label="Открыть корзину"
         >
           <svg class="w-4 h-4 text-sage-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -266,17 +275,18 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobileMenu" class="hidden lg:hidden border-t border-cream-200 bg-cream-50 px-4 py-4 space-y-2">
-      <a href="#services" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Наши услуги</a>
-      <a href="#shop" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Популярные товары</a>
-      <a href="#specialists" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Наши специалисты</a>
-      <a href="#reviews" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Отзывы клиентов</a>
-      <a href="#contacts" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Контакты</a>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-cream-200 bg-cream-50 px-4 py-4 space-y-1.5 shadow-elevated">
+      <a href="#services" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-sm font-semibold text-ink-700 hover:bg-sage-50 hover:text-sage-700">Наши услуги</a>
+      <a href="#appointment" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-sm font-semibold text-ink-700 hover:bg-sage-50 hover:text-sage-700">Онлайн-запись к ветеринару</a>
+      <a href="#shop" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-sm font-semibold text-ink-700 hover:bg-sage-50 hover:text-sage-700">Каталог товаров (8)</a>
+      <a href="#specialists" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-sm font-semibold text-ink-700 hover:bg-sage-50 hover:text-sage-700">Наши ветеринары</a>
+      <a href="#reviews" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-sm font-semibold text-ink-700 hover:bg-sage-50 hover:text-sage-700">Отзывы клиентов</a>
+      <a href="#contacts" onclick="closeMobileMenu()" class="block px-4 py-3 rounded-2xl text-sm font-semibold text-ink-700 hover:bg-sage-50 hover:text-sage-700">Контакты (Казахстан)</a>
       <div class="pt-2">
         <a
           href="#appointment"
           onclick="closeMobileMenu()"
-          class="w-full inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-3 text-sm font-semibold transition"
+          class="w-full inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-3.5 text-sm font-semibold transition"
         >
           Записаться на прием
         </a>
@@ -286,29 +296,29 @@
 
   <main>
     <!-- 1. HERO SECTION -->
-    <section id="hero" class="relative overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
+    <section id="hero" class="relative overflow-hidden pt-7 pb-12 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
       <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-sage-100/80 blur-3xl"></div>
       <div class="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-terracotta-100/70 blur-3xl"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <!-- Left Column -->
-          <div class="lg:col-span-6 space-y-6 animate-fade-up">
-            <div class="inline-flex items-center gap-2 rounded-full bg-sage-100 border border-sage-200 px-4 py-1.5 text-xs sm:text-sm font-semibold text-sage-700">
-              <span>PetCare</span>
+          <div class="lg:col-span-6 space-y-5 sm:space-y-6 animate-fade-up">
+            <div class="inline-flex items-center gap-2 rounded-full bg-sage-100 border border-sage-200 px-3.5 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold text-sage-700">
+              <span>PetCare Казахстан</span>
               <span class="text-sage-500">•</span>
               <span>Забота о питомцах в одном месте</span>
             </div>
 
-            <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[52px] tracking-tight text-ink-900 leading-[1.12]">
+            <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[52px] tracking-tight text-ink-900 leading-[1.13]">
               Забота о вашем питомце начинается здесь
             </h1>
 
-            <p class="text-base sm:text-lg text-ink-700 leading-relaxed max-w-xl">
-              Современная клиника, бережный груминг, вакцинация, консультации ветеринарных врачей и проверенный магазин кормов и аксессуаров для собак и кошек. Спокойная атмосфера без очередей и стресса.
+            <p class="text-sm sm:text-lg text-ink-700 leading-relaxed max-w-xl">
+              Современный сервис заботы о животных в Казахстане: ветеринарные приёмы, вакцинация, консультации специалистов, бережный груминг и магазин проверенных товаров для собак и кошек с ценами в тенге (₸).
             </p>
 
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <a
                 href="#appointment"
                 class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 hover:bg-sage-700 text-white px-7 py-3.5 text-sm sm:text-base font-semibold shadow-soft transition cursor-pointer"
@@ -323,30 +333,30 @@
                 href="#shop"
                 class="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-cream-100 text-ink-900 border border-cream-200 px-6 py-3.5 text-sm sm:text-base font-semibold transition"
               >
-                <span>Перейти в каталог товаров</span>
+                <span>Посмотреть каталог (8 товаров)</span>
               </a>
             </div>
 
             <!-- Key Metrics -->
             <div class="grid grid-cols-3 gap-3 sm:gap-5 pt-4 border-t border-cream-200">
               <div>
-                <p class="font-display font-extrabold text-xl sm:text-2xl text-ink-900">4.9 ★</p>
-                <p class="text-xs sm:text-sm text-ink-500 mt-0.5">Средняя оценка владельцев</p>
+                <p class="font-display font-extrabold text-lg sm:text-2xl text-ink-900">4.9 ★</p>
+                <p class="text-[11px] sm:text-sm text-ink-500 mt-0.5 leading-snug">Оценка владельцев</p>
               </div>
               <div>
-                <p class="font-display font-extrabold text-xl sm:text-2xl text-ink-900">12+</p>
-                <p class="text-xs sm:text-sm text-ink-500 mt-0.5">Врачей и грумеров</p>
+                <p class="font-display font-extrabold text-lg sm:text-2xl text-ink-900">3 врача</p>
+                <p class="text-[11px] sm:text-sm text-ink-500 mt-0.5 leading-snug">Опыт от 6 до 10 лет</p>
               </div>
               <div>
-                <p class="font-display font-extrabold text-xl sm:text-2xl text-ink-900">08:00–22:00</p>
-                <p class="text-xs sm:text-sm text-ink-500 mt-0.5">Работаем без выходных</p>
+                <p class="font-display font-extrabold text-lg sm:text-2xl text-ink-900">08:00–22:00</p>
+                <p class="text-[11px] sm:text-sm text-ink-500 mt-0.5 leading-snug">Ежедневно без выходных</p>
               </div>
             </div>
           </div>
 
           <!-- Right Column: Hero Pet Photo -->
           <div class="lg:col-span-6 relative animate-fade-up" style="animation-delay: 0.12s;">
-            <div class="relative rounded-[28px] sm:rounded-[34px] overflow-hidden bg-cream-100 border border-cream-200 shadow-elevated aspect-[4/3] sm:aspect-[16/12]">
+            <div class="relative rounded-[26px] sm:rounded-[34px] overflow-hidden bg-cream-100 border border-cream-200 shadow-elevated aspect-[4/3] sm:aspect-[16/12]">
               <img
                 src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1200&q=85"
                 alt="Счастливая собака в светлом центре заботы о животных PetCare"
@@ -355,27 +365,27 @@
               <div class="absolute inset-0 bg-gradient-to-t from-ink-900/35 via-transparent to-transparent"></div>
             </div>
 
-            <!-- Floating Card: Cat Companion -->
-            <div class="hidden sm:flex items-center gap-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-cream-200 p-3.5 shadow-card max-w-xs absolute -bottom-5 -left-5 animate-float-slow">
+            <!-- Mobile-friendly Companion Badge -->
+            <div class="mt-3 sm:mt-0 flex items-center gap-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-cream-200 p-3.5 shadow-card sm:max-w-xs sm:absolute sm:-bottom-5 sm:-left-5 animate-float-slow">
               <img
                 src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=200&q=80"
-                alt="Спокойный котик"
+                alt="Спокойный кот"
                 class="w-12 h-12 rounded-xl object-cover shrink-0"
               />
               <div>
-                <p class="text-xs font-bold text-ink-900">Отдельные зоны для кошек</p>
-                <p class="text-[11px] text-ink-500 leading-snug mt-0.5">Тихие кабинеты и бережный подход к каждому хвостику</p>
+                <p class="text-xs font-bold text-ink-900">Отдельные тихие зоны для кошек</p>
+                <p class="text-[11px] text-ink-500 leading-snug mt-0.5">Бережный осмотр и груминг без лишнего стресса</p>
               </div>
             </div>
 
-            <!-- Floating Card: Fast Booking -->
+            <!-- Desktop Floating Card -->
             <div class="hidden md:flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md border border-cream-200 px-4 py-3 shadow-card absolute -top-4 -right-4">
               <div class="w-9 h-9 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center font-bold text-sm">
                 ✓
               </div>
               <div>
                 <p class="text-xs font-bold text-ink-900">Онлайн-запись за 1 минуту</p>
-                <p class="text-[11px] text-ink-500">Подтверждение слота сразу</p>
+                <p class="text-[11px] text-ink-500">Мгновенное подтверждение приёма</p>
               </div>
             </div>
           </div>
@@ -384,9 +394,9 @@
     </section>
 
     <!-- 2. SERVICES SECTION -->
-    <section id="services" class="py-16 sm:py-20 bg-cream-100/75 border-y border-cream-200">
+    <section id="services" class="py-14 sm:py-20 bg-cream-100/75 border-y border-cream-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 reveal">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 sm:mb-10 reveal">
           <div class="max-w-2xl">
             <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
               Услуги центра
@@ -394,18 +404,18 @@
             <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
               Наши услуги
             </h2>
-            <p class="text-sm sm:text-base text-ink-700 mt-2.5">
-              Профессиональная ветеринария, плановая вакцинация, подробные консультации врачей и аккуратный груминг для собак и кошек.
+            <p class="text-sm sm:text-base text-ink-700 mt-2">
+              Ветеринария, плановая вакцинация, консультации специалистов и деликатный груминг для собак и кошек.
             </p>
           </div>
 
-          <!-- Service Category Filter -->
-          <div id="serviceFilters" class="flex flex-wrap gap-2" role="group" aria-label="Фильтр услуг">
+          <!-- Horizontal Scrollable Service Filters on Mobile -->
+          <div id="serviceFilters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap" role="group" aria-label="Фильтр услуг">
             <button
               type="button"
               data-service-filter="all"
               onclick="setServiceFilter('all')"
-              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer"
+              class="service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer"
             >
               Все услуги
             </button>
@@ -413,7 +423,7 @@
               type="button"
               data-service-filter="vet"
               onclick="setServiceFilter('vet')"
-              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+              class="service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
             >
               Ветеринария
             </button>
@@ -421,7 +431,7 @@
               type="button"
               data-service-filter="vaccination"
               onclick="setServiceFilter('vaccination')"
-              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+              class="service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
             >
               Вакцинация
             </button>
@@ -429,7 +439,7 @@
               type="button"
               data-service-filter="consultation"
               onclick="setServiceFilter('consultation')"
-              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+              class="service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
             >
               Консультации
             </button>
@@ -437,7 +447,7 @@
               type="button"
               data-service-filter="grooming"
               onclick="setServiceFilter('grooming')"
-              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+              class="service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
             >
               Груминг
             </button>
@@ -449,25 +459,25 @@
       </div>
     </section>
 
-    <!-- 3. APPOINTMENT BOOKING & MY APPOINTMENTS -->
-    <section id="appointment" class="py-16 sm:py-20">
+    <!-- 3. ONLINE APPOINTMENT BOOKING & MY APPOINTMENTS -->
+    <section id="appointment" class="py-14 sm:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mb-10 reveal">
+        <div class="max-w-2xl mb-8 sm:mb-10 reveal">
           <span class="inline-block rounded-full bg-terracotta-100 text-terracotta-600 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
             Онлайн-запись
           </span>
           <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
-            Запись к ветеринару и специалистам
+            Запись к ветеринару
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 mt-2.5">
-            Укажите ваше имя, телефон, кличку питомца, выберите услугу, удобную дату и свободное время приёма.
+          <p class="text-sm sm:text-base text-ink-700 mt-2">
+            Заполните поля ниже — сразу после отправки появится подтверждение успешной записи с номером талона и деталями визита.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           <!-- Booking Form -->
-          <div class="lg:col-span-7 bg-white rounded-[28px] border border-cream-200 p-6 sm:p-8 shadow-card reveal">
-            <form id="appointmentForm" onsubmit="handleAppointmentSubmit(event)" class="space-y-5" novalidate>
+          <div class="lg:col-span-7 bg-white rounded-[26px] sm:rounded-[28px] border border-cream-200 p-5 sm:p-8 shadow-card reveal">
+            <form id="appointmentForm" onsubmit="handleAppointmentSubmit(event)" class="space-y-4 sm:space-y-5" novalidate>
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="ownerName" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
@@ -478,26 +488,27 @@
                     name="ownerName"
                     type="text"
                     required
-                    placeholder="Например, Анна Соколова"
-                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition"
+                    placeholder="Например, Айгерим Серикова"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition"
                   />
-                  <p id="ownerNameError" class="hidden text-xs text-red-600 mt-1">Введите ваше имя.</p>
+                  <p id="ownerNameError" class="hidden text-xs text-red-600 mt-1">Пожалуйста, введите ваше имя.</p>
                 </div>
 
                 <div>
                   <label for="ownerPhone" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
-                    Телефон <span class="text-terracotta-600">*</span>
+                    Телефон (Казахстан) <span class="text-terracotta-600">*</span>
                   </label>
                   <input
                     id="ownerPhone"
                     name="ownerPhone"
                     type="tel"
+                    inputmode="tel"
                     required
-                    placeholder="+7 (999) 123-45-67"
+                    placeholder="+7 (707) 123-45-67"
                     oninput="formatPhoneInput(this)"
-                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition"
                   />
-                  <p id="ownerPhoneError" class="hidden text-xs text-red-600 mt-1">Укажите корректный номер телефона.</p>
+                  <p id="ownerPhoneError" class="hidden text-xs text-red-600 mt-1">Укажите корректный номер телефона (+7 ...).</p>
                 </div>
               </div>
 
@@ -511,10 +522,10 @@
                     name="petName"
                     type="text"
                     required
-                    placeholder="Например, Барсик или Рекс"
-                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition"
+                    placeholder="Например, Акжол или Симба"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition"
                   />
-                  <p id="petNameError" class="hidden text-xs text-red-600 mt-1">Введите имя питомца.</p>
+                  <p id="petNameError" class="hidden text-xs text-red-600 mt-1">Пожалуйста, укажите кличку питомца.</p>
                 </div>
 
                 <div>
@@ -524,7 +535,7 @@
                   <select
                     id="petType"
                     name="petType"
-                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition cursor-pointer"
                   >
                     <option value="Собака">Собака</option>
                     <option value="Кошка">Кошка</option>
@@ -536,23 +547,23 @@
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="serviceSelect" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
-                    Выберите услугу
+                    Услуга
                   </label>
                   <select
                     id="serviceSelect"
                     name="serviceSelect"
-                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition cursor-pointer"
                   ></select>
                 </div>
 
                 <div>
                   <label for="specialistSelect" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
-                    Специалист
+                    Ветеринар
                   </label>
                   <select
                     id="specialistSelect"
                     name="specialistSelect"
-                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition cursor-pointer"
                   ></select>
                 </div>
               </div>
@@ -567,33 +578,33 @@
                   type="date"
                   required
                   onchange="renderTimeSlots()"
-                  class="w-full sm:w-64 rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                  class="w-full sm:w-64 rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-base sm:text-sm text-ink-900 transition cursor-pointer"
                 />
                 <p id="appointmentDateError" class="hidden text-xs text-red-600 mt-1">Выберите дату приёма.</p>
               </div>
 
               <!-- Time Slots -->
               <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <label class="block text-xs sm:text-sm font-semibold text-ink-900">
                     Время приёма <span class="text-terracotta-600">*</span>
                   </label>
                   <span class="text-xs text-ink-500">Занятые слоты отмечены серым</span>
                 </div>
-                <div id="timeSlotsGrid" class="grid grid-cols-3 sm:grid-cols-4 gap-2.5"></div>
-                <p id="timeSlotError" class="hidden text-xs text-red-600 mt-1.5">Выберите доступное время приёма.</p>
+                <div id="timeSlotsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5"></div>
+                <p id="timeSlotError" class="hidden text-xs text-red-600 mt-1.5">Выберите удобное время приёма.</p>
               </div>
 
               <div>
                 <label for="appointmentNotes" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
-                  Пожелания или симптомы (необязательно)
+                  Комментарий (необязательно)
                 </label>
                 <textarea
                   id="appointmentNotes"
                   name="appointmentNotes"
                   rows="2"
-                  placeholder="Например: плановый осмотр перед прививкой, боится громких звуков..."
-                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-2.5 text-sm text-ink-900 transition resize-none"
+                  placeholder="Например: плановая вакцинация или первичный осмотр..."
+                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-2.5 text-base sm:text-sm text-ink-900 transition resize-none"
                 ></textarea>
               </div>
 
@@ -608,21 +619,31 @@
               </button>
             </form>
 
-            <!-- Confirmation Banner -->
-            <div id="appointmentConfirmation" class="hidden mt-6 rounded-2xl bg-sage-50 border border-sage-200 p-5">
+            <!-- Confirmation Banner (Guaranteed visibility & smooth scroll after submit) -->
+            <div
+              id="appointmentConfirmation"
+              role="alert"
+              aria-live="polite"
+              class="hidden mt-6 rounded-2xl bg-sage-50 border-2 border-sage-500 p-5 shadow-soft"
+            >
               <div class="flex items-start justify-between gap-3">
-                <div>
-                  <span class="inline-block rounded-full bg-sage-600 text-white text-xs font-bold px-3 py-0.5 mb-2">
-                    Запись оформлена
-                  </span>
-                  <h3 id="confTitle" class="font-display font-bold text-base sm:text-lg text-ink-900"></h3>
-                  <p id="confDetails" class="text-xs sm:text-sm text-ink-700 mt-1"></p>
+                <div class="flex items-start gap-3">
+                  <div class="w-9 h-9 rounded-full bg-sage-600 text-white flex items-center justify-center font-bold shrink-0 mt-0.5">
+                    ✓
+                  </div>
+                  <div>
+                    <span class="inline-block rounded-full bg-sage-600 text-white text-[11px] font-bold px-3 py-0.5 mb-1.5">
+                      Запись успешно подтверждена
+                    </span>
+                    <h3 id="confTitle" class="font-display font-bold text-base sm:text-lg text-ink-900"></h3>
+                    <p id="confDetails" class="text-xs sm:text-sm text-ink-700 mt-1 leading-relaxed"></p>
+                  </div>
                 </div>
                 <button
                   type="button"
                   onclick="document.getElementById('appointmentConfirmation').classList.add('hidden')"
-                  class="text-ink-500 hover:text-ink-900 text-sm font-semibold px-2 py-1 cursor-pointer"
-                  aria-label="Скрыть уведомление"
+                  class="text-ink-500 hover:text-ink-900 text-sm font-semibold px-2 py-1 cursor-pointer shrink-0"
+                  aria-label="Скрыть подтверждение"
                 >
                   ✕
                 </button>
@@ -631,65 +652,65 @@
           </div>
 
           <!-- Right Column: Active Appointments ("Мои записи") -->
-          <div class="lg:col-span-5 bg-cream-100 rounded-[28px] border border-cream-200 p-6 sm:p-7 reveal">
+          <div class="lg:col-span-5 bg-cream-100 rounded-[26px] sm:rounded-[28px] border border-cream-200 p-5 sm:p-7 reveal">
             <div class="flex items-center justify-between gap-2 pb-4 border-b border-cream-200">
               <div>
                 <h3 class="font-display font-bold text-lg sm:text-xl text-ink-900">Мои записи</h3>
-                <p class="text-xs text-ink-500 mt-0.5">Сохраняются в браузере и обновляются мгновенно</p>
+                <p class="text-xs text-ink-500 mt-0.5">Актуальные талоны на приём</p>
               </div>
               <span id="appointmentsCountBadge" class="rounded-full bg-white border border-cream-200 px-3 py-1 text-xs font-bold text-sage-700">
                 0
               </span>
             </div>
 
-            <div id="appointmentsList" class="mt-4 space-y-3 max-h-[470px] overflow-y-auto custom-scroll pr-1"></div>
+            <div id="appointmentsList" class="mt-4 space-y-3 max-h-[480px] overflow-y-auto custom-scroll pr-1"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. POPULAR PRODUCTS & CATALOG WITH FILTERING -->
-    <section id="shop" class="py-16 sm:py-20 bg-cream-100/75 border-y border-cream-200">
+    <!-- 4. POPULAR PRODUCTS CATALOG (8 ITEMS IN TENGE ₸) -->
+    <section id="shop" class="py-14 sm:py-20 bg-cream-100/75 border-y border-cream-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-8 sm:mb-10 reveal">
           <div class="max-w-2xl">
             <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
               Зоомагазин PetCare
             </span>
             <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
-              Популярные товары
+              Популярные товары для кошек и собак
             </h2>
-            <p class="text-sm sm:text-base text-ink-700 mt-2.5">
-              Сбалансированные корма, лакомства, лежанки и аксессуары для кошек и собак. Выбирайте категорию и добавляйте товары в корзину.
+            <p class="text-sm sm:text-base text-ink-700 mt-2">
+              8 проверенных товаров с фотографиями, подробным описанием и ценами в казахстанских тенге (₸).
             </p>
           </div>
 
           <!-- Filter & Sort Controls -->
-          <div class="flex flex-wrap items-center gap-3">
-            <div class="flex flex-wrap gap-2" role="group" aria-label="Фильтр товаров по виду питомца">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-4 px-4 sm:mx-0 sm:px-0" role="group" aria-label="Фильтр товаров по виду питомца">
               <button
                 type="button"
                 data-product-filter="all"
                 onclick="setProductFilter('all')"
-                class="product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer"
+                class="product-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer"
               >
-                Все товары (<span id="countAll">0</span>)
+                Все товары (<span id="countAll">8</span>)
               </button>
               <button
                 type="button"
                 data-product-filter="dog"
                 onclick="setProductFilter('dog')"
-                class="product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+                class="product-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
               >
-                Для собак (<span id="countDog">0</span>)
+                Для собак (<span id="countDog">4</span>)
               </button>
               <button
                 type="button"
                 data-product-filter="cat"
                 onclick="setProductFilter('cat')"
-                class="product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+                class="product-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
               >
-                Для кошек (<span id="countCat">0</span>)
+                Для кошек (<span id="countCat">4</span>)
               </button>
             </div>
 
@@ -697,43 +718,44 @@
               id="productSort"
               onchange="renderProducts()"
               aria-label="Сортировка товаров"
-              class="rounded-full bg-white border border-cream-200 px-4 py-2 text-xs sm:text-sm font-semibold text-ink-700 focus:outline-none focus:border-sage-600 cursor-pointer"
+              class="self-start sm:self-auto rounded-full bg-white border border-cream-200 px-4 py-2 text-xs sm:text-sm font-semibold text-ink-700 focus:outline-none focus:border-sage-600 cursor-pointer"
             >
               <option value="popular">Сначала популярные</option>
-              <option value="price-asc">Цена: по возрастанию</option>
-              <option value="price-desc">Цена: по убыванию</option>
+              <option value="price-asc">Цена: по возрастанию (₸)</option>
+              <option value="price-desc">Цена: по убыванию (₸)</option>
             </select>
           </div>
         </div>
 
-        <!-- Products Grid -->
+        <!-- Products Grid (8 items) -->
         <div id="productsGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
       </div>
     </section>
 
-    <!-- 5. SPECIALISTS SECTION -->
-    <section id="specialists" class="py-16 sm:py-20">
+    <!-- 5. VETERINARIANS SECTION (3 CARDS) -->
+    <section id="specialists" class="py-14 sm:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mb-10 reveal">
+        <div class="max-w-2xl mb-8 sm:mb-10 reveal">
           <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
-            Команда экспертов
+            Команда врачей
           </span>
           <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
-            Наши специалисты
+            Наши ветеринары
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 mt-2.5">
-            Внимательные ветеринарные врачи, диагносты и грумеры с многолетней практикой и бережным отношением к животным.
+          <p class="text-sm sm:text-base text-ink-700 mt-2">
+            Опытные ветеринарные специалисты с бережным подходом к кошкам и собакам.
           </p>
         </div>
 
-        <div id="specialistsGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
+        <!-- 3 Veterinarian Cards Grid -->
+        <div id="specialistsGrid" class="grid md:grid-cols-3 gap-6 sm:gap-7"></div>
       </div>
     </section>
 
     <!-- 6. CLIENT REVIEWS SECTION -->
-    <section id="reviews" class="py-16 sm:py-20 bg-cream-100/75 border-y border-cream-200">
+    <section id="reviews" class="py-14 sm:py-20 bg-cream-100/75 border-y border-cream-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10 reveal">
           <div>
             <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
               Истории владельцев
@@ -742,7 +764,7 @@
               Отзывы клиентов
             </h2>
             <p class="text-sm sm:text-base text-ink-700 mt-2">
-              Нам доверяют заботу о здоровье и комфорте своих кошек и собак.
+              Впечатления владельцев собак и кошек о приёмах и товарах PetCare.
             </p>
           </div>
           <button
@@ -755,7 +777,7 @@
         </div>
 
         <!-- Add Review Form (Collapsible) -->
-        <div id="reviewFormWrapper" class="hidden mb-8 bg-white rounded-[24px] border border-cream-200 p-6 shadow-card max-w-2xl">
+        <div id="reviewFormWrapper" class="hidden mb-8 bg-white rounded-[24px] border border-cream-200 p-5 sm:p-6 shadow-card max-w-2xl">
           <h3 class="font-display font-bold text-lg text-ink-900 mb-4">Поделитесь впечатлением о PetCare</h3>
           <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
             <div class="grid sm:grid-cols-2 gap-4">
@@ -765,15 +787,15 @@
                   id="reviewerName"
                   type="text"
                   required
-                  placeholder="Мария и кот Марсик"
-                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-sm"
+                  placeholder="Динара и кот Барсик"
+                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-base sm:text-sm"
                 />
               </div>
               <div>
                 <label for="reviewRating" class="block text-xs font-semibold text-ink-900 mb-1">Оценка</label>
                 <select
                   id="reviewRating"
-                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-sm cursor-pointer"
+                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-base sm:text-sm cursor-pointer"
                 >
                   <option value="5">★★★★★ — Отлично (5)</option>
                   <option value="4">★★★★☆ — Хорошо (4)</option>
@@ -786,8 +808,8 @@
                 id="reviewText"
                 rows="3"
                 required
-                placeholder="Расскажите о визите к врачу, груминге или заказе товаров..."
-                class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-sm resize-none"
+                placeholder="Расскажите о приёме у ветеринара или заказе товаров..."
+                class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-base sm:text-sm resize-none"
               ></textarea>
             </div>
             <div class="flex items-center gap-3">
@@ -813,18 +835,18 @@
       </div>
     </section>
 
-    <!-- 7. CONTACTS & LOCATION SECTION -->
-    <section id="contacts" class="py-16 sm:py-20">
+    <!-- 7. CONTACTS SECTION (KAZAKHSTAN, NO INVENTED STREET ADDRESS) -->
+    <section id="contacts" class="py-14 sm:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mb-10 reveal">
+        <div class="max-w-2xl mb-8 sm:mb-10 reveal">
           <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
-            Как нас найти
+            Связь и консультации
           </span>
           <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
             Контактная информация
           </h2>
-          <p class="text-sm sm:text-base text-ink-700 mt-2.5">
-            Ждём вас и ваших питомцев в нашем центре заботы PetCare. Удобная парковка у входа и зона ожидания с водой и мисками.
+          <p class="text-sm sm:text-base text-ink-700 mt-2">
+            Сервис PetCare работает на территории Республики Казахстан. Оформляйте онлайн-запись к ветеринару или заказывайте товары с доставкой по Казахстану.
           </p>
         </div>
 
@@ -832,59 +854,59 @@
           <!-- Contact Cards -->
           <div class="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
             <div class="bg-white rounded-3xl border border-cream-200 p-5 shadow-card">
-              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Адрес центра</p>
-              <p class="font-display font-bold text-base text-ink-900 mt-1">ул. Садовая, д. 24, корп. 1</p>
-              <p class="text-xs sm:text-sm text-ink-500 mt-1">Вход с зелёного двора, парковка для клиентов</p>
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Регион работы</p>
+              <p class="font-display font-bold text-base text-ink-900 mt-1">Республика Казахстан</p>
+              <p class="text-xs sm:text-sm text-ink-500 mt-1">Онлайн-запись к специалистам и доставка зоотоваров по всему Казахстану</p>
             </div>
 
             <div class="bg-white rounded-3xl border border-cream-200 p-5 shadow-card">
-              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Телефон и почта</p>
-              <a href="tel:+78005553421" class="block font-display font-bold text-base text-ink-900 hover:text-sage-600 mt-1 transition">
-                +7 (800) 555-34-21
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Единый контакт-центр</p>
+              <a href="tel:+77005553421" class="block font-display font-bold text-base text-ink-900 hover:text-sage-600 mt-1 transition">
+                +7 (700) 555-34-21
               </a>
-              <a href="mailto:hello@petcare-center.ru" class="block text-xs sm:text-sm text-ink-700 hover:text-sage-600 mt-1 transition">
-                hello@petcare-center.ru
+              <a href="mailto:info@petcare.kz" class="block text-xs sm:text-sm text-ink-700 hover:text-sage-600 mt-1 transition">
+                info@petcare.kz
               </a>
             </div>
 
             <div class="bg-white rounded-3xl border border-cream-200 p-5 shadow-card sm:col-span-2 lg:col-span-1">
-              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Режим работы</p>
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">График работы</p>
               <p class="font-display font-bold text-base text-ink-900 mt-1">Ежедневно с 08:00 до 22:00</p>
-              <p class="text-xs sm:text-sm text-ink-500 mt-1">Ветеринария, груминг и выдача заказов без выходных</p>
+              <p class="text-xs sm:text-sm text-ink-500 mt-1">Приём заявок, консультации ветеринаров и обработка заказов без выходных</p>
             </div>
           </div>
 
-          <!-- Visual Map / Center Preview Card -->
-          <div class="lg:col-span-7 rounded-[28px] overflow-hidden bg-sage-50 border border-sage-200 p-6 sm:p-8 flex flex-col justify-between shadow-card relative">
+          <!-- Visual Service Card -->
+          <div class="lg:col-span-7 rounded-[26px] sm:rounded-[28px] overflow-hidden bg-sage-50 border border-sage-200 p-6 sm:p-8 flex flex-col justify-between shadow-card relative">
             <div>
               <span class="inline-flex items-center gap-2 rounded-full bg-white border border-sage-200 px-3.5 py-1 text-xs font-semibold text-sage-700">
                 <span class="w-2 h-2 rounded-full bg-sage-600"></span>
-                Уютное пространство для животных и владельцев
+                PetCare Казахстан • Онлайн-запись и доставка
               </span>
               <h3 class="font-display font-extrabold text-xl sm:text-2xl text-ink-900 mt-4">
-                Всё для здоровья и радости питомца в одном месте
+                Всё для здоровья и комфорта питомца в одном месте
               </h3>
               <p class="text-sm text-ink-700 mt-2 max-w-xl leading-relaxed">
-                Запишитесь на приём онлайн или соберите заказ в корзине — мы подготовим всё к вашему визиту или доставим прямо до двери.
+                Выберите удобную дату и время приёма в онлайн-форме или оформите заказ на корма, лакомства и аксессуары с оплатой в тенге (₸).
               </p>
             </div>
 
-            <div class="mt-6 pt-6 border-t border-sage-200/80 flex flex-wrap items-center justify-between gap-4">
+            <div class="mt-6 pt-6 border-t border-sage-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div class="flex items-center gap-3">
                 <img
                   src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=240&q=80"
                   alt="Две собаки на прогулке"
-                  class="w-14 h-14 rounded-2xl object-cover border border-white shadow-sm"
+                  class="w-14 h-14 rounded-2xl object-cover border border-white shadow-sm shrink-0"
                 />
                 <div>
                   <p class="text-sm font-bold text-ink-900">PetCare — Забота о питомцах в одном месте</p>
-                  <p class="text-xs text-ink-500">Предварительная запись и консультации по телефону</p>
+                  <p class="text-xs text-ink-500">Казахстан • Онлайн-поддержка владельцев</p>
                 </div>
               </div>
 
               <a
                 href="#appointment"
-                class="inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 text-sm font-semibold transition"
+                class="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-3 text-sm font-semibold transition"
               >
                 Записаться на прием
               </a>
@@ -910,7 +932,7 @@
             </div>
           </div>
           <p class="text-sm text-cream-100/75 mt-4 max-w-md leading-relaxed">
-            Центр ветеринарной помощи, груминга и товаров для собак и кошек. Мы создаём спокойный и надёжный сервис для каждого питомца.
+            Онлайн-сервис заботы о домашних животных в Казахстане: запись к ветеринарам, груминг и проверенные товары для собак и кошек.
           </p>
         </div>
 
@@ -919,8 +941,8 @@
           <ul class="space-y-2 text-sm text-cream-100/75">
             <li><a href="#services" class="hover:text-white transition">Наши услуги</a></li>
             <li><a href="#appointment" class="hover:text-white transition">Запись на прием</a></li>
-            <li><a href="#shop" class="hover:text-white transition">Популярные товары</a></li>
-            <li><a href="#specialists" class="hover:text-white transition">Наши специалисты</a></li>
+            <li><a href="#shop" class="hover:text-white transition">Каталог товаров</a></li>
+            <li><a href="#specialists" class="hover:text-white transition">Наши ветеринары</a></li>
             <li><a href="#reviews" class="hover:text-white transition">Отзывы клиентов</a></li>
           </ul>
         </div>
@@ -928,20 +950,38 @@
         <div>
           <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider mb-3">Контакты</h4>
           <ul class="space-y-2 text-sm text-cream-100/75">
-            <li>ул. Садовая, д. 24, корп. 1</li>
-            <li>+7 (800) 555-34-21</li>
-            <li>hello@petcare-center.ru</li>
+            <li>Республика Казахстан</li>
+            <li>+7 (700) 555-34-21</li>
+            <li>info@petcare.kz</li>
             <li>Ежедневно: 08:00–22:00</li>
           </ul>
         </div>
       </div>
 
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-100/60">
-        <p>© <span id="currentYear">2026</span> PetCare. Все права защищены.</p>
+        <p>© <span id="currentYear">2026</span> PetCare Казахстан. Все права защищены.</p>
         <p>Забота о питомцах в одном месте</p>
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Bottom Quick Action Bar -->
+  <div class="sm:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-cream-200 px-3 py-2.5 flex items-center gap-2.5 shadow-elevated">
+    <a
+      href="#appointment"
+      class="flex-1 inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white py-2.5 px-4 text-xs font-bold transition"
+    >
+      Записаться к врачу
+    </a>
+    <button
+      type="button"
+      onclick="openCartDrawer()"
+      class="inline-flex items-center justify-center gap-1.5 rounded-full bg-cream-100 text-ink-900 border border-cream-200 py-2.5 px-4 text-xs font-bold transition cursor-pointer"
+    >
+      <span>Корзина</span>
+      <span id="mobileBarCartBadge" class="min-w-[18px] h-[18px] px-1 rounded-full bg-sage-600 text-white text-[11px] font-bold inline-flex items-center justify-center">0</span>
+    </button>
+  </div>
 
   <!-- Shopping Cart Drawer -->
   <div id="cartOverlay" onclick="closeCartDrawer()" class="fixed inset-0 z-50 bg-ink-900/45 backdrop-blur-xs hidden transition-opacity"></div>
@@ -951,7 +991,7 @@
     class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-cream-50 border-l border-cream-200 shadow-elevated translate-x-full transition-transform duration-300 flex flex-col"
   >
     <!-- Cart Header -->
-    <div class="px-6 py-5 bg-white border-b border-cream-200 flex items-center justify-between">
+    <div class="px-5 sm:px-6 py-4 sm:py-5 bg-white border-b border-cream-200 flex items-center justify-between">
       <div>
         <h3 class="font-display font-extrabold text-lg text-ink-900">Корзина</h3>
         <p id="cartSubtitle" class="text-xs text-ink-500 mt-0.5">0 товаров</p>
@@ -967,7 +1007,7 @@
     </div>
 
     <!-- Free Delivery Progress -->
-    <div class="px-6 py-3 bg-sage-50 border-b border-sage-200/70">
+    <div class="px-5 sm:px-6 py-3 bg-sage-50 border-b border-sage-200/70">
       <p id="deliveryHint" class="text-xs font-medium text-sage-700"></p>
       <div class="w-full h-1.5 rounded-full bg-sage-200 overflow-hidden mt-2">
         <div id="deliveryBar" class="h-full bg-sage-600 transition-all duration-300" style="width: 0%;"></div>
@@ -975,22 +1015,22 @@
     </div>
 
     <!-- Cart Items -->
-    <div id="cartItemsContainer" class="flex-1 overflow-y-auto custom-scroll p-6 space-y-4"></div>
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto custom-scroll p-5 sm:p-6 space-y-3.5"></div>
 
     <!-- Cart Footer & Checkout -->
-    <div id="cartFooter" class="p-6 bg-white border-t border-cream-200 space-y-4">
+    <div id="cartFooter" class="p-5 sm:p-6 bg-white border-t border-cream-200 space-y-4">
       <div class="space-y-1.5 text-sm">
         <div class="flex items-center justify-between text-ink-700">
-          <span>Товары</span>
-          <span id="cartSubtotal">0 ₽</span>
+          <span>Товары (<span id="cartTotalUnits">0</span> шт.)</span>
+          <span id="cartSubtotal">0 ₸</span>
         </div>
         <div class="flex items-center justify-between text-ink-700">
-          <span>Доставка</span>
+          <span>Доставка по Казахстану</span>
           <span id="cartDeliveryCost" class="font-semibold text-sage-700">Бесплатно</span>
         </div>
         <div class="flex items-center justify-between font-display font-extrabold text-base text-ink-900 pt-2 border-t border-cream-200">
-          <span>Итого</span>
-          <span id="cartTotal">0 ₽</span>
+          <span>Итого к оплате</span>
+          <span id="cartTotal">0 ₸</span>
         </div>
       </div>
 
@@ -1001,22 +1041,23 @@
           type="text"
           required
           placeholder="Ваше имя"
-          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-xs sm:text-sm"
+          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-base sm:text-sm"
         />
         <input
           id="checkoutPhone"
           type="tel"
+          inputmode="tel"
           required
-          placeholder="Телефон (+7 (999) 123-45-67)"
+          placeholder="Телефон (+7 (707) 123-45-67)"
           oninput="formatPhoneInput(this)"
-          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-xs sm:text-sm"
+          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-base sm:text-sm"
         />
         <input
           id="checkoutAddress"
           type="text"
           required
-          placeholder="Адрес доставки или самовывоз"
-          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-xs sm:text-sm"
+          placeholder="Город и адрес доставки в Казахстане"
+          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-base sm:text-sm"
         />
         <button
           type="submit"
@@ -1056,7 +1097,7 @@
     type="button"
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
     aria-label="Наверх"
-    class="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-white hover:bg-sage-600 text-ink-900 hover:text-white border border-cream-200 shadow-elevated flex items-center justify-center opacity-0 pointer-events-none transition duration-200 cursor-pointer"
+    class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-sage-600 text-ink-900 hover:text-white border border-cream-200 shadow-elevated flex items-center justify-center opacity-0 pointer-events-none transition duration-200 cursor-pointer"
   >
     ↑
   </button>
@@ -1066,14 +1107,14 @@
     id="toast"
     role="status"
     aria-live="polite"
-    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-ink-900 text-white text-xs sm:text-sm font-medium px-5 py-2.5 shadow-elevated opacity-0 pointer-events-none transition-all duration-200"
+    class="fixed bottom-20 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[92vw] text-center rounded-full bg-ink-900 text-white text-xs sm:text-sm font-medium px-5 py-2.5 shadow-elevated opacity-0 pointer-events-none transition-all duration-200"
   ></div>
 
   <script>
     const STORAGE_KEYS = {
-      cart: 'petcare_cart_v1',
-      appointments: 'petcare_appointments_v1',
-      reviews: 'petcare_reviews_v1'
+      cart: 'petcare_kz_cart_v1',
+      appointments: 'petcare_kz_appointments_v1',
+      reviews: 'petcare_kz_reviews_v1'
     };
 
     const SERVICES = [
@@ -1084,17 +1125,17 @@
         title: 'Приём и осмотр ветеринара',
         description: 'Комплексный осмотр, термометрия, оценка состояния шерсти, ушей, зубов и составление плана здоровья.',
         duration: '40 мин',
-        price: 1800,
+        price: 8500,
         image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'srv-dental-lab',
         category: 'vet',
         categoryLabel: 'Ветеринария',
-        title: 'Санация ротовой полости и экспресс-анализы',
+        title: 'Санация полости рта и экспресс-анализы',
         description: 'Ультразвуковая чистка зубов, осмотр дёсен и базовые показатели крови с быстрым результатом.',
         duration: '50 мин',
-        price: 2900,
+        price: 14500,
         image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80'
       },
       {
@@ -1102,9 +1143,9 @@
         category: 'vaccination',
         categoryLabel: 'Вакцинация',
         title: 'Комплексная вакцинация собак и кошек',
-        description: 'Предварительный осмотр врача, сертифицированная вакцина, отметка в ветпаспорте и рекомендации после прививки.',
+        description: 'Предварительный осмотр врача, сертифицированная вакцина, отметка в ветпаспорте и рекомендации.',
         duration: '30 мин',
-        price: 2200,
+        price: 11000,
         image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80'
       },
       {
@@ -1112,9 +1153,9 @@
         category: 'vaccination',
         categoryLabel: 'Вакцинация',
         title: 'Вакцинация от бешенства и чипирование',
-        description: 'Регистрация микрочипа в базе и оформление документов для поездок и регулярной защиты питомца.',
+        description: 'Регистрация микрочипа в единой базе и оформление ветеринарного паспорта для поездок.',
         duration: '30 мин',
-        price: 1950,
+        price: 9500,
         image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80'
       },
       {
@@ -1122,9 +1163,9 @@
         category: 'consultation',
         categoryLabel: 'Консультации',
         title: 'Консультация по питанию и весу',
-        description: 'Подбор промышленного рациона или натурального меню с учётом возраста, породы, активности и чувствительности.',
+        description: 'Подбор сбалансированного рациона с учётом возраста, породы, активности и чувствительности.',
         duration: '45 мин',
-        price: 1500,
+        price: 7000,
         image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80'
       },
       {
@@ -1134,7 +1175,7 @@
         title: 'Консультация по адаптации и поведению',
         description: 'Помогаем справиться с тревожностью, страхом приёмов, адаптацией котят и щенков в новом доме.',
         duration: '45 мин',
-        price: 1700,
+        price: 8000,
         image: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80'
       },
       {
@@ -1142,9 +1183,9 @@
         category: 'grooming',
         categoryLabel: 'Груминг',
         title: 'Комплексный груминг собак',
-        description: 'Мягкое мытьё профессиональной косметикой, бережная сушка, вычёсывание подшёрстка, стрижка и уход за когтями.',
+        description: 'Мягкое мытьё профессиональной косметикой, бережная сушка, вычёсывание, стрижка и уход за когтями.',
         duration: '90 мин',
-        price: 2600,
+        price: 12500,
         image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=80'
       },
       {
@@ -1152,153 +1193,146 @@
         category: 'grooming',
         categoryLabel: 'Груминг',
         title: 'Экспресс-линька и уход за кошками',
-        description: 'Деликатный уход в тихом кабинете без фенов высокого давления: вычёсывание, гигиена ушей и подстригание когтей.',
+        description: 'Деликатный уход в тихом кабинете: вычёсывание подшёрстка, гигиена ушей и подстригание когтей.',
         duration: '60 мин',
-        price: 2100,
+        price: 10000,
         image: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80'
       }
     ];
 
+    // 8 Products for Cats and Dogs with Photos, Titles, Descriptions and Prices in Tenge (₸)
     const PRODUCTS = [
       {
         id: 'prd-dog-food',
         pet: 'dog',
         petLabel: 'Для собак',
         title: 'Сухой корм с ягнёнком и рисом, 3 кг',
-        subtitle: 'Сбалансированный рацион для взрослых собак всех пород',
-        price: 2450,
+        description: 'Гипоаллергенный полнорационный корм для взрослых собак с омега-кислотами для здоровой кожи и блестящей шерсти.',
+        price: 12900,
         popularRank: 1,
         image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=800&q=80'
-      },
-      {
-        id: 'prd-dog-treats',
-        pet: 'dog',
-        petLabel: 'Для собак',
-        title: 'Натуральные мясные лакомства для тренировок',
-        subtitle: '100% мясо индейки без красителей и консервантов, 180 г',
-        price: 690,
-        popularRank: 3,
-        image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80'
-      },
-      {
-        id: 'prd-dog-bed',
-        pet: 'dog',
-        petLabel: 'Для собак',
-        title: 'Мягкая лежанка с бортиками «Шалфей»',
-        subtitle: 'Съёмный чехол на молнии, гипоаллергенный наполнитель',
-        price: 3290,
-        popularRank: 4,
-        image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80'
-      },
-      {
-        id: 'prd-dog-leash',
-        pet: 'dog',
-        petLabel: 'Для собак',
-        title: 'Плетёный поводок и шлейка для прогулок',
-        subtitle: 'Прочная фурнитура и мягкая анатомическая посадка',
-        price: 1590,
-        popularRank: 6,
-        image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'prd-cat-food',
         pet: 'cat',
         petLabel: 'Для кошек',
         title: 'Корм с лососем и бататом для кошек, 1.5 кг',
-        subtitle: 'Для здоровой кожи, блестящей шерсти и пищеварения',
-        price: 1890,
+        description: 'Сбалансированный беззерновой рацион для домашних кошек с таурином и пребиотиками для лёгкого пищеварения.',
+        price: 9400,
         popularRank: 2,
         image: 'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-dog-treats',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Натуральные мясные лакомства из индейки, 180 г',
+        description: 'Мягкие кусочки сушёного филе индейки без искусственных ароматизаторов и соли — идеально для поощрения на прогулке.',
+        price: 3400,
+        popularRank: 3,
+        image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'prd-cat-fountain',
         pet: 'cat',
         petLabel: 'Для кошек',
         title: 'Бесшумный питьевой фонтанчик 2.2 л',
-        subtitle: 'Угольный фильтр и циркуляция свежей воды каждый день',
-        price: 2790,
-        popularRank: 5,
+        description: 'Автоматическая поилка с многоступенчатым угольным фильтром, которая стимулирует кошек пить больше чистой воды.',
+        price: 13800,
+        popularRank: 4,
         image: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-dog-bed',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Ортопедическая лежанка с бортиками «Шалфей»',
+        description: 'Уютное спальное место со съёмным износостойким чехлом на молнии и мягкой поддержкой суставов.',
+        price: 16500,
+        popularRank: 5,
+        image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'prd-cat-toy',
         pet: 'cat',
         petLabel: 'Для кошек',
-        title: 'Набор игрушек с натуральной мятой и перьями',
-        subtitle: 'Для активных игр и снятия скуки в течение дня',
-        price: 640,
-        popularRank: 7,
+        title: 'Игровой набор с кошачьей мятой и перьями',
+        description: 'Дразнилка и мягкие мышки с натуральной мятой для поддержания активности и охотничьего интереса кошки.',
+        price: 3100,
+        popularRank: 6,
         image: 'https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-dog-leash',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Анатомическая шлейка и плетёный поводок',
+        description: 'Лёгкая дышащая шлейка без давления на шею и прочный поводок с надёжным карабином для ежедневных прогулок.',
+        price: 7900,
+        popularRank: 7,
+        image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80'
       },
       {
         id: 'prd-cat-brush',
         pet: 'cat',
         petLabel: 'Для кошек',
         title: 'Деликатная щётка-пуходерка для вычёсывания',
-        subtitle: 'Мягкие наконечники бережно собирают лишнюю шерсть',
-        price: 980,
+        description: 'Мягкие зубцы с защитными каплями аккуратно удаляют выпавший подшёрсток, не царапая чувствительную кожу.',
+        price: 4600,
         popularRank: 8,
         image: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80'
       }
     ];
 
-    const SPECIALISTS = [
+    // 3 Veterinarian Cards with Name, Specialization and Experience
+    const VETERINARIANS = [
       {
-        id: 'doc-elena',
-        name: 'Елена Морозова',
-        role: 'Главный ветеринарный врач, терапевт',
-        experience: 'Стаж 9 лет',
-        bio: 'Специализируется на профилактике, диагностике и вакцинации кошек и собак. Находит подход даже к робким питомцам.',
+        id: 'vet-aydana',
+        name: 'Айдана Нурланова',
+        specialization: 'Ветеринарный врач-терапевт, диагност',
+        experience: 'Опыт работы: 9 лет',
+        bio: 'Проводит комплексные осмотры, УЗИ-диагностику и плановую вакцинацию собак и кошек с бережным подходом без стресса.',
         defaultServiceId: 'srv-exam',
-        image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80'
+        image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80'
       },
       {
-        id: 'doc-artem',
-        name: 'Артём Волков',
-        role: 'Ветеринарный врач, диетолог',
-        experience: 'Стаж 7 лет',
-        bio: 'Помогает подобрать лечебные и повседневные рационы, контролирует вес и сопровождает питомцев с чувствительным пищеварением.',
+        id: 'vet-timur',
+        name: 'Тимур Касымов',
+        specialization: 'Ветеринарный врач-хирург и стоматолог',
+        experience: 'Опыт работы: 10 лет',
+        bio: 'Специализируется на малоинвазивной хирургии, санации ротовой полости, чипировании и послеоперационном восстановлении питомцев.',
+        defaultServiceId: 'srv-dental-lab',
+        image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'vet-madina',
+        name: 'Мадина Сулейменова',
+        specialization: 'Ветеринарный врач-диетолог и вакцинолог',
+        experience: 'Опыт работы: 7 лет',
+        bio: 'Составляет индивидуальные рационы при аллергии и чувствительном пищеварении, ведёт календарь прививок щенков и котят.',
         defaultServiceId: 'srv-consult-nutrition',
-        image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=80'
-      },
-      {
-        id: 'doc-sofia',
-        name: 'София Лебедева',
-        role: 'Ведущий грумер и специалист по уходу',
-        experience: 'Стаж 6 лет',
-        bio: 'Выполняет породные стрижки, экспресс-линьку и бережный гигиенический уход с использованием мягкой косметики.',
-        defaultServiceId: 'srv-groom-dog',
-        image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=80'
-      },
-      {
-        id: 'doc-dmitry',
-        name: 'Дмитрий Орлов',
-        role: 'Врач общей практики и вакцинолог',
-        experience: 'Стаж 8 лет',
-        bio: 'Проводит плановые осмотры, вакцинацию, чипирование и консультации по адаптации животных в семье.',
-        defaultServiceId: 'srv-vax-complex',
-        image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=700&q=80'
+        image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80'
       }
     ];
 
     const DEFAULT_REVIEWS = [
       {
         id: 'rev-1',
-        author: 'Ольга и пёс Бруно',
+        author: 'Асель и корги Тайсон',
         rating: 5,
-        text: 'Записались на прививку и осмотр через сайт — приняли ровно по времени. Бруно даже не испугался, а в магазине сразу взяли корм и лакомства.'
+        text: 'Записались к терапевту Айдане Нурлановой через форму на сайте — сразу пришло подтверждение с номером талона. Приём прошёл спокойно и внимательно.'
       },
       {
         id: 'rev-2',
-        author: 'Мария и кошка Луна',
+        author: 'Данияр и кошка Мия',
         rating: 5,
-        text: 'Очень светлый и спокойный центр. Делали экспресс-линьку и взяли питьевой фонтанчик — шерсти дома стало заметно меньше, кошка довольна.'
+        text: 'Заказали корм с лососем и питьевой фонтанчик в тенге. Доставка приехала быстро, кошка сразу полюбила фонтанчик.'
       },
       {
         id: 'rev-3',
-        author: 'Илья и корги Честер',
+        author: 'Камила и лабрадор Барон',
         rating: 5,
-        text: 'Удобно, что всё в одном месте: и консультация врача по питанию, и качественные товары с быстрой доставкой. Обязательно вернёмся.'
+        text: 'Очень удобный сайт: всё в одном месте — и запись на прививку, и покупка лакомств с ортопедической лежанкой. Отличный сервис!'
       }
     ];
 
@@ -1336,8 +1370,8 @@
       }
     }
 
-    function formatRub(amount) {
-      return new Intl.NumberFormat('ru-RU').format(Math.round(amount)) + ' ₽';
+    function formatTenge(amount) {
+      return new Intl.NumberFormat('ru-KZ').format(Math.round(amount)) + ' ₸';
     }
 
     function formatDateRu(isoDate) {
@@ -1416,8 +1450,8 @@
       document.querySelectorAll('.service-filter-btn').forEach((btn) => {
         const active = btn.dataset.serviceFilter === filter;
         btn.className = active
-          ? 'service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer'
-          : 'service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
+          ? 'service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer'
+          : 'service-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
       });
       renderServices();
     }
@@ -1452,7 +1486,7 @@
 
           <div class="px-5 pb-5 pt-3 border-t border-cream-100 flex items-center justify-between gap-3">
             <span class="font-display font-extrabold text-base sm:text-lg text-ink-900">
-              ${formatRub(srv.price)}
+              ${formatTenge(srv.price)}
             </span>
             <button
               type="button"
@@ -1474,14 +1508,14 @@
       if (srv) showToast(`Выбрана услуга: ${srv.title}`);
     }
 
-    function bookWithSpecialist(specialistId) {
-      const spec = SPECIALISTS.find((sp) => sp.id === specialistId);
-      if (spec) {
-        document.getElementById('specialistSelect').value = spec.id;
-        if (spec.defaultServiceId) {
-          document.getElementById('serviceSelect').value = spec.defaultServiceId;
+    function bookWithSpecialist(vetId) {
+      const vet = VETERINARIANS.find((v) => v.id === vetId);
+      if (vet) {
+        document.getElementById('specialistSelect').value = vet.id;
+        if (vet.defaultServiceId) {
+          document.getElementById('serviceSelect').value = vet.defaultServiceId;
         }
-        showToast(`Выбран специалист: ${spec.name}`);
+        showToast(`Выбран ветеринар: ${vet.name}`);
       }
       document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
     }
@@ -1490,14 +1524,14 @@
     function populateBookingSelects() {
       const serviceSelect = document.getElementById('serviceSelect');
       serviceSelect.innerHTML = SERVICES.map(
-        (s) => `<option value="${s.id}">${s.title} — ${formatRub(s.price)}</option>`
+        (s) => `<option value="${s.id}">${s.title} — ${formatTenge(s.price)}</option>`
       ).join('');
 
       const specialistSelect = document.getElementById('specialistSelect');
       specialistSelect.innerHTML =
-        `<option value="Любой свободный специалист">Любой свободный специалист</option>` +
-        SPECIALISTS.map(
-          (sp) => `<option value="${sp.id}">${sp.name} (${sp.role.split(',')[0]})</option>`
+        `<option value="Любой свободный ветеринар">Любой свободный ветеринар</option>` +
+        VETERINARIANS.map(
+          (v) => `<option value="${v.id}">${v.name} — ${v.specialization.split(',')[0]}</option>`
         ).join('');
     }
 
@@ -1563,7 +1597,7 @@
       renderTimeSlots();
     }
 
-    // Appointment Form Submit
+    // Appointment Form Submit with Reliable Confirmation Message
     function handleAppointmentSubmit(e) {
       e.preventDefault();
 
@@ -1612,13 +1646,13 @@
       }
 
       if (!valid) {
-        showToast('Проверьте заполнение полей формы записи');
+        showToast('Пожалуйста, заполните обязательные поля и выберите время');
         return;
       }
 
       const srv = SERVICES.find((s) => s.id === serviceEl.value) || SERVICES[0];
-      const specObj = SPECIALISTS.find((sp) => sp.id === specialistEl.value);
-      const specialistLabel = specObj ? specObj.name : specialistEl.value;
+      const vetObj = VETERINARIANS.find((v) => v.id === specialistEl.value);
+      const specialistLabel = vetObj ? vetObj.name : specialistEl.value;
 
       const appointment = {
         id: 'PC-' + Math.floor(1000 + Math.random() * 9000),
@@ -1639,16 +1673,18 @@
 
       const confBox = document.getElementById('appointmentConfirmation');
       document.getElementById('confTitle').textContent =
-        `Питомец ${appointment.petName} записан на ${formatDateRu(appointment.date)} в ${appointment.time}`;
+        `Запись подтверждена! Ждём питомца «${appointment.petName}» ${formatDateRu(appointment.date)} в ${appointment.time}`;
       document.getElementById('confDetails').textContent =
-        `Услуга: ${appointment.serviceTitle} (${formatRub(appointment.servicePrice)}) • Специалист: ${appointment.specialist} • № талона: ${appointment.id}`;
+        `Владелец: ${appointment.ownerName} (${appointment.ownerPhone}) • Услуга: ${appointment.serviceTitle} (${formatTenge(appointment.servicePrice)}) • Ветеринар: ${appointment.specialist} • Номер талона: ${appointment.id}`;
       confBox.classList.remove('hidden');
 
       state.selectedTimeSlot = '';
       notesEl.value = '';
       renderTimeSlots();
       renderAppointments();
-      showToast('Запись успешно подтверждена');
+
+      confBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      showToast(`Запись №${appointment.id} успешно оформлена!`);
     }
 
     function cancelAppointment(id) {
@@ -1668,7 +1704,7 @@
         list.innerHTML = `
           <div class="rounded-2xl bg-white border border-cream-200 p-6 text-center">
             <p class="text-sm font-semibold text-ink-900">Пока нет активных записей</p>
-            <p class="text-xs text-ink-500 mt-1">Заполните форму слева, чтобы забронировать приём к врачу или грумеру.</p>
+            <p class="text-xs text-ink-500 mt-1">Заполните форму онлайн-записи, чтобы забронировать приём к ветеринару.</p>
           </div>
         `;
         return;
@@ -1689,11 +1725,11 @@
           </div>
 
           <p class="text-xs sm:text-sm font-medium text-ink-700">${app.serviceTitle}</p>
-          <p class="text-xs text-ink-500">Специалист: ${app.specialist} • Владелец: ${app.ownerName}</p>
+          <p class="text-xs text-ink-500">Ветеринар: ${app.specialist} • Владелец: ${app.ownerName}</p>
           ${app.notes ? `<p class="text-xs text-ink-500 italic">«${app.notes}»</p>` : ''}
 
           <div class="pt-2 border-t border-cream-100 flex items-center justify-between">
-            <span class="text-xs sm:text-sm font-bold text-ink-900">${formatRub(app.servicePrice)}</span>
+            <span class="text-xs sm:text-sm font-bold text-ink-900">${formatTenge(app.servicePrice)}</span>
             <button
               type="button"
               onclick="cancelAppointment('${app.id}')"
@@ -1706,14 +1742,14 @@
       `).join('');
     }
 
-    // Products Rendering, Filtering & Sorting
+    // Products Rendering, Filtering & Sorting (8 items in Tenge ₸)
     function setProductFilter(filter) {
       state.productFilter = filter;
       document.querySelectorAll('.product-filter-btn').forEach((btn) => {
         const active = btn.dataset.productFilter === filter;
         btn.className = active
-          ? 'product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer'
-          : 'product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
+          ? 'product-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer'
+          : 'product-filter-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
       });
       renderProducts();
     }
@@ -1792,15 +1828,15 @@
                 <h3 class="font-display font-bold text-base text-ink-900 leading-snug">
                   ${prd.title}
                 </h3>
-                <p class="text-xs sm:text-sm text-ink-500 mt-1.5 leading-relaxed">
-                  ${prd.subtitle}
+                <p class="text-xs sm:text-sm text-ink-500 mt-2 leading-relaxed">
+                  ${prd.description}
                 </p>
               </div>
             </div>
 
             <div class="px-5 pb-5 pt-3 border-t border-cream-100 flex items-center justify-between gap-2">
               <span class="font-display font-extrabold text-base sm:text-lg text-ink-900">
-                ${formatRub(prd.price)}
+                ${formatTenge(prd.price)}
               </span>
               ${actionHtml}
             </div>
@@ -1809,7 +1845,7 @@
       }).join('');
     }
 
-    // Cart Operations
+    // Cart Operations (Add, Remove, Count, Total in ₸)
     function addToCart(productId) {
       const existing = state.cart.find((item) => item.productId === productId);
       if (existing) {
@@ -1887,9 +1923,9 @@
         return sum + (prd ? prd.price * item.qty : 0);
       }, 0);
 
-      const deliveryCost = subtotal >= 3000 ? 0 : 290;
+      const deliveryCost = subtotal >= 15000 ? 0 : 1200;
       const total = subtotal + deliveryCost;
-      const orderNum = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
+      const orderNum = 'KZ-' + Math.floor(10000 + Math.random() * 90000);
 
       state.cart = [];
       saveToStorage(STORAGE_KEYS.cart, state.cart);
@@ -1898,9 +1934,9 @@
 
       const successBox = document.getElementById('orderSuccessBox');
       successBox.innerHTML = `
-        <p class="font-display font-bold text-sage-700">Заказ №${orderNum} оформлен!</p>
+        <p class="font-display font-bold text-sage-700">Заказ №${orderNum} успешно оформлен!</p>
         <p class="text-xs text-ink-700 mt-1">
-          Спасибо, ${name}. Сумма к оплате: <strong>${formatRub(total)}</strong>. Менеджер свяжется по номеру ${phone} для уточнения доставки по адресу: ${address}.
+          Спасибо, ${name}. Итоговая сумма: <strong>${formatTenge(total)}</strong>. Оператор свяжется по номеру ${phone} для подтверждения доставки (${address}).
         </p>
       `;
       successBox.classList.remove('hidden');
@@ -1911,9 +1947,14 @@
     }
 
     function renderCart() {
+      // Remove any stale product IDs if storage had old items
+      state.cart = state.cart.filter((item) => PRODUCTS.some((p) => p.id === item.productId));
+
       const container = document.getElementById('cartItemsContainer');
       const badge = document.getElementById('headerCartBadge');
+      const mobileBarBadge = document.getElementById('mobileBarCartBadge');
       const subtitle = document.getElementById('cartSubtitle');
+      const totalUnitsEl = document.getElementById('cartTotalUnits');
       const subtotalEl = document.getElementById('cartSubtotal');
       const deliveryCostEl = document.getElementById('cartDeliveryCost');
       const totalEl = document.getElementById('cartTotal');
@@ -1924,6 +1965,8 @@
 
       const totalCount = state.cart.reduce((acc, item) => acc + item.qty, 0);
       badge.textContent = String(totalCount);
+      if (mobileBarBadge) mobileBarBadge.textContent = String(totalCount);
+      totalUnitsEl.textContent = String(totalCount);
       subtitle.textContent = totalCount === 0
         ? 'Пока пусто'
         : `${totalCount} шт. в корзине`;
@@ -1933,22 +1976,22 @@
         return sum + (prd ? prd.price * item.qty : 0);
       }, 0);
 
-      const freeThreshold = 3000;
+      const freeThreshold = 15000;
       const pct = Math.min(100, Math.round((subtotal / freeThreshold) * 100));
       barEl.style.width = `${pct}%`;
 
       if (subtotal >= freeThreshold) {
-        hintEl.textContent = '✓ Бесплатная доставка активирована';
+        hintEl.textContent = '✓ Бесплатная доставка по Казахстану активирована';
       } else {
-        hintEl.textContent = `До бесплатной доставки осталось ${formatRub(freeThreshold - subtotal)}`;
+        hintEl.textContent = `До бесплатной доставки осталось ${formatTenge(freeThreshold - subtotal)}`;
       }
 
-      const deliveryCost = subtotal === 0 || subtotal >= freeThreshold ? 0 : 290;
+      const deliveryCost = subtotal === 0 || subtotal >= freeThreshold ? 0 : 1200;
       const grandTotal = subtotal + deliveryCost;
 
-      subtotalEl.textContent = formatRub(subtotal);
-      deliveryCostEl.textContent = subtotal === 0 ? '—' : (deliveryCost === 0 ? 'Бесплатно' : formatRub(deliveryCost));
-      totalEl.textContent = formatRub(grandTotal);
+      subtotalEl.textContent = formatTenge(subtotal);
+      deliveryCostEl.textContent = subtotal === 0 ? '—' : (deliveryCost === 0 ? 'Бесплатно' : formatTenge(deliveryCost));
+      totalEl.textContent = formatTenge(grandTotal);
 
       checkoutBtn.disabled = state.cart.length === 0;
       clearBtn.disabled = state.cart.length === 0;
@@ -1957,13 +2000,13 @@
         container.innerHTML = `
           <div class="text-center py-12 px-4">
             <p class="font-display font-bold text-base text-ink-900">В корзине пока нет товаров</p>
-            <p class="text-xs sm:text-sm text-ink-500 mt-1">Выберите корм, лакомства или аксессуары в каталоге «Популярные товары».</p>
+            <p class="text-xs sm:text-sm text-ink-500 mt-1">Добавьте корма, лакомства или аксессуары из каталога «Популярные товары».</p>
             <button
               type="button"
               onclick="closeCartDrawer(); document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });"
               class="mt-4 rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer"
             >
-              Перейти к товарам
+              Перейти в каталог
             </button>
           </div>
         `;
@@ -1992,7 +2035,7 @@
                   Удалить
                 </button>
               </div>
-              <p class="text-[11px] text-ink-500 mt-0.5">${formatRub(prd.price)} за шт.</p>
+              <p class="text-[11px] text-ink-500 mt-0.5">${formatTenge(prd.price)} за шт.</p>
 
               <div class="flex items-center justify-between mt-2.5">
                 <div class="inline-flex items-center rounded-full bg-cream-100 border border-cream-200">
@@ -2010,7 +2053,7 @@
                     aria-label="Увеличить"
                   >+</button>
                 </div>
-                <span class="font-display font-bold text-xs sm:text-sm text-ink-900">${formatRub(lineTotal)}</span>
+                <span class="font-display font-bold text-xs sm:text-sm text-ink-900">${formatTenge(lineTotal)}</span>
               </div>
             </div>
           </div>
@@ -2018,31 +2061,31 @@
       }).join('');
     }
 
-    // Specialists Rendering
+    // 3 Veterinarians Rendering
     function renderSpecialists() {
       const grid = document.getElementById('specialistsGrid');
-      grid.innerHTML = SPECIALISTS.map((sp) => `
-        <article class="pet-card bg-white rounded-[24px] border border-cream-200 overflow-hidden flex flex-col justify-between shadow-card">
+      grid.innerHTML = VETERINARIANS.map((vet) => `
+        <article class="pet-card bg-white rounded-[26px] border border-cream-200 overflow-hidden flex flex-col justify-between shadow-card">
           <div>
-            <div class="img-zoom aspect-[4/4] bg-cream-100 overflow-hidden">
-              <img src="${sp.image}" alt="${sp.name}" class="w-full h-full object-cover object-top" loading="lazy" />
-            </div>
-            <div class="p-5">
-              <span class="inline-block rounded-full bg-sage-50 text-sage-700 border border-sage-200 px-3 py-0.5 text-[11px] font-bold mb-2">
-                ${sp.experience}
+            <div class="img-zoom aspect-[4/3] bg-cream-100 overflow-hidden relative">
+              <img src="${vet.image}" alt="${vet.name}" class="w-full h-full object-cover object-top" loading="lazy" />
+              <span class="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-xs text-sage-700 border border-sage-200 px-3 py-1 text-xs font-bold">
+                ${vet.experience}
               </span>
-              <h3 class="font-display font-bold text-lg text-ink-900">${sp.name}</h3>
-              <p class="text-xs font-semibold text-sage-700 mt-0.5">${sp.role}</p>
-              <p class="text-xs sm:text-sm text-ink-700 mt-2.5 leading-relaxed">${sp.bio}</p>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-display font-bold text-lg sm:text-xl text-ink-900">${vet.name}</h3>
+              <p class="text-xs sm:text-sm font-semibold text-sage-700 mt-1">${vet.specialization}</p>
+              <p class="text-xs sm:text-sm text-ink-700 mt-3 leading-relaxed">${vet.bio}</p>
             </div>
           </div>
-          <div class="px-5 pb-5">
+          <div class="px-5 sm:px-6 pb-5 sm:pb-6">
             <button
               type="button"
-              onclick="bookWithSpecialist('${sp.id}')"
-              class="w-full rounded-full bg-cream-100 hover:bg-sage-600 text-ink-900 hover:text-white border border-cream-200 py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer"
+              onclick="bookWithSpecialist('${vet.id}')"
+              class="w-full rounded-full bg-sage-50 hover:bg-sage-600 text-sage-700 hover:text-white border border-sage-200 py-3 text-xs sm:text-sm font-semibold transition cursor-pointer"
             >
-              Записаться к специалисту
+              Записаться к ветеринару
             </button>
           </div>
         </article>
@@ -2103,7 +2146,7 @@
             }
           });
         },
-        { threshold: 0.12 }
+        { threshold: 0.1 }
       );
 
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
