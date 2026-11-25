@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetCare — Забота о питомцах в одном месте</title>
+  <meta name="description" content="PetCare — современный центр заботы о домашних животных: ветеринария, вакцинация, консультации специалистов, груминг и магазин проверенных товаров для собак и кошек." />
+  <meta name="keywords" content="PetCare, ветеринарная клиника, уход за животными, груминг собак и кошек, вакцинация питомцев, товары для животных, запись к ветеринару" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#3B6E52" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PetCare — Забота о питомцах в одном месте" />
+  <meta property="og:description" content="Ветеринарные приёмы, вакцинация, консультации, деликатный груминг и товары для кошек и собак с удобной онлайн-записью." />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="PetCare" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FAF8F5',
+              100: '#F3EFE8',
+              200: '#E7E0D5',
+            },
+            sage: {
+              50: '#F2F7F4',
+              100: '#E3EFE8',
+              200: '#C4DDD0',
+              500: '#4F8A6A',
+              600: '#3B6E52',
+              700: '#2D5540',
+            },
+            terracotta: {
+              100: '#FBECE5',
+              500: '#D9825B',
+              600: '#C26C45',
+            },
+            ink: {
+              900: '#1D2923',
+              700: '#425249',
+              500: '#6A7A71',
+              400: '#8E9E95',
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px -10px rgba(29, 41, 35, 0.08)',
+            card: '0 4px 20px -4px rgba(29, 41, 35, 0.06)',
+            elevated: '0 20px 45px -12px rgba(29, 41, 35, 0.14)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-cream: #FAF8F5;
+      --bg-sand: #F3EFE8;
+      --accent-sage: #3B6E52;
+      --accent-sage-hover: #2D5540;
+      --accent-soft: #E3EFE8;
+      --accent-warm: #D9825B;
+      --text-main: #1D2923;
+      --text-muted: #6A7A71;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 5s ease-in-out infinite;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pet-card {
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease;
+    }
+
+    .pet-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px -12px rgba(29, 41, 35, 0.12);
+      border-color: #C4DDD0;
+    }
+
+    .img-zoom img {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .pet-card:hover .img-zoom img {
+      transform: scale(1.04);
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F3EFE8;
+      border-radius: 999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #C4DDD0;
+      border-radius: 999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #4F8A6A;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .animate-float-slow,
+      .reveal,
+      .pet-card,
+      .img-zoom img {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-cream-50 text-ink-900 antialiased selection:bg-sage-200 selection:text-ink-900">
+
+  <!-- Top Announcement Strip -->
+  <div class="bg-sage-700 text-cream-50 text-xs sm:text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <p class="flex items-center gap-2 font-medium">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-300"></span>
+        <span>PetCare — Забота о питомцах в одном месте • Ежедневно 08:00–22:00</span>
+      </p>
+      <p class="text-cream-100/90">
+        Бесплатная доставка товаров от <strong class="text-white">3 000 ₽</strong> • Первичный осмотр без стресса
+      </p>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header id="top" class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group shrink-0" aria-label="PetCare — На главную">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-sage-600 text-white flex items-center justify-center shadow-soft group-hover:bg-sage-700 transition">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 13.2c-2.6 0-4.9 1.6-5.7 3.8-.5 1.4.5 2.8 2 2.8h7.4c1.5 0 2.5-1.4 2-2.8-.8-2.2-3.1-3.8-5.7-3.8zm-5.2-3.7c1.1 0 2-1.1 2-2.4S7.9 4.7 6.8 4.7s-2 1.1-2 2.4.9 2.4 2 2.4zm3.5-1.4c1.1 0 2-1.2 2-2.6S11.4 3.7 10.3 3.7s-2 1.2-2 2.6.9 1.8 2 1.8zm3.4 0c1.1 0 2-.8 2-1.8s-.9-2.6-2-2.6-2 1.2-2 2.6.9 2.6 2 2.6zm3.5 1.4c1.1 0 2-1.1 2-2.4s-.9-2.4-2-2.4-2 1.1-2 2.4.9 2.4 2 2.4z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-display font-extrabold text-lg sm:text-xl tracking-tight text-ink-900 leading-none">
+            PetCare
+          </span>
+          <span class="block text-[11px] sm:text-xs text-ink-500 mt-0.5 leading-tight">
+            Забота о питомцах в одном месте
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-ink-700" aria-label="Основная навигация">
+        <a href="#services" class="hover:text-sage-600 transition py-1">Наши услуги</a>
+        <a href="#shop" class="hover:text-sage-600 transition py-1">Популярные товары</a>
+        <a href="#specialists" class="hover:text-sage-600 transition py-1">Наши специалисты</a>
+        <a href="#reviews" class="hover:text-sage-600 transition py-1">Отзывы</a>
+        <a href="#contacts" class="hover:text-sage-600 transition py-1">Контакты</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          type="button"
+          onclick="openCartDrawer()"
+          class="relative inline-flex items-center gap-2 rounded-full bg-cream-100 hover:bg-sage-100 text-ink-900 border border-cream-200 hover:border-sage-200 px-3.5 py-2.5 text-sm font-semibold transition cursor-pointer"
+          aria-label="Открыть корзину"
+        >
+          <svg class="w-4 h-4 text-sage-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="hidden sm:inline">Корзина</span>
+          <span
+            id="headerCartBadge"
+            class="min-w-[20px] h-5 px-1.5 rounded-full bg-sage-600 text-white text-xs font-bold inline-flex items-center justify-center transition"
+          >
+            0
+          </span>
+        </button>
+
+        <a
+          href="#appointment"
+          class="hidden sm:inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-4 py-2.5 text-sm font-semibold shadow-soft transition"
+        >
+          Записаться на прием
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          onclick="toggleMobileMenu()"
+          class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-cream-100 hover:bg-cream-200 text-ink-900 border border-cream-200 transition cursor-pointer"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+        >
+          <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-cream-200 bg-cream-50 px-4 py-4 space-y-2">
+      <a href="#services" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Наши услуги</a>
+      <a href="#shop" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Популярные товары</a>
+      <a href="#specialists" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Наши специалисты</a>
+      <a href="#reviews" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Отзывы клиентов</a>
+      <a href="#contacts" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-2xl text-sm font-medium text-ink-700 hover:bg-sage-50 hover:text-sage-700">Контакты</a>
+      <div class="pt-2">
+        <a
+          href="#appointment"
+          onclick="closeMobileMenu()"
+          class="w-full inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-3 text-sm font-semibold transition"
+        >
+          Записаться на прием
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
+      <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-sage-100/80 blur-3xl"></div>
+      <div class="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-terracotta-100/70 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Left Column -->
+          <div class="lg:col-span-6 space-y-6 animate-fade-up">
+            <div class="inline-flex items-center gap-2 rounded-full bg-sage-100 border border-sage-200 px-4 py-1.5 text-xs sm:text-sm font-semibold text-sage-700">
+              <span>PetCare</span>
+              <span class="text-sage-500">•</span>
+              <span>Забота о питомцах в одном месте</span>
+            </div>
+
+            <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[52px] tracking-tight text-ink-900 leading-[1.12]">
+              Забота о вашем питомце начинается здесь
+            </h1>
+
+            <p class="text-base sm:text-lg text-ink-700 leading-relaxed max-w-xl">
+              Современная клиника, бережный груминг, вакцинация, консультации ветеринарных врачей и проверенный магазин кормов и аксессуаров для собак и кошек. Спокойная атмосфера без очередей и стресса.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+              <a
+                href="#appointment"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 hover:bg-sage-700 text-white px-7 py-3.5 text-sm sm:text-base font-semibold shadow-soft transition cursor-pointer"
+              >
+                <span>Записаться на прием</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+
+              <a
+                href="#shop"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-cream-100 text-ink-900 border border-cream-200 px-6 py-3.5 text-sm sm:text-base font-semibold transition"
+              >
+                <span>Перейти в каталог товаров</span>
+              </a>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-5 pt-4 border-t border-cream-200">
+              <div>
+                <p class="font-display font-extrabold text-xl sm:text-2xl text-ink-900">4.9 ★</p>
+                <p class="text-xs sm:text-sm text-ink-500 mt-0.5">Средняя оценка владельцев</p>
+              </div>
+              <div>
+                <p class="font-display font-extrabold text-xl sm:text-2xl text-ink-900">12+</p>
+                <p class="text-xs sm:text-sm text-ink-500 mt-0.5">Врачей и грумеров</p>
+              </div>
+              <div>
+                <p class="font-display font-extrabold text-xl sm:text-2xl text-ink-900">08:00–22:00</p>
+                <p class="text-xs sm:text-sm text-ink-500 mt-0.5">Работаем без выходных</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Hero Pet Photo -->
+          <div class="lg:col-span-6 relative animate-fade-up" style="animation-delay: 0.12s;">
+            <div class="relative rounded-[28px] sm:rounded-[34px] overflow-hidden bg-cream-100 border border-cream-200 shadow-elevated aspect-[4/3] sm:aspect-[16/12]">
+              <img
+                src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1200&q=85"
+                alt="Счастливая собака в светлом центре заботы о животных PetCare"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink-900/35 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Floating Card: Cat Companion -->
+            <div class="hidden sm:flex items-center gap-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-cream-200 p-3.5 shadow-card max-w-xs absolute -bottom-5 -left-5 animate-float-slow">
+              <img
+                src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=200&q=80"
+                alt="Спокойный котик"
+                class="w-12 h-12 rounded-xl object-cover shrink-0"
+              />
+              <div>
+                <p class="text-xs font-bold text-ink-900">Отдельные зоны для кошек</p>
+                <p class="text-[11px] text-ink-500 leading-snug mt-0.5">Тихие кабинеты и бережный подход к каждому хвостику</p>
+              </div>
+            </div>
+
+            <!-- Floating Card: Fast Booking -->
+            <div class="hidden md:flex items-center gap-3 rounded-2xl bg-white/95 backdrop-blur-md border border-cream-200 px-4 py-3 shadow-card absolute -top-4 -right-4">
+              <div class="w-9 h-9 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center font-bold text-sm">
+                ✓
+              </div>
+              <div>
+                <p class="text-xs font-bold text-ink-900">Онлайн-запись за 1 минуту</p>
+                <p class="text-[11px] text-ink-500">Подтверждение слота сразу</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SERVICES SECTION -->
+    <section id="services" class="py-16 sm:py-20 bg-cream-100/75 border-y border-cream-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 reveal">
+          <div class="max-w-2xl">
+            <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
+              Услуги центра
+            </span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
+              Наши услуги
+            </h2>
+            <p class="text-sm sm:text-base text-ink-700 mt-2.5">
+              Профессиональная ветеринария, плановая вакцинация, подробные консультации врачей и аккуратный груминг для собак и кошек.
+            </p>
+          </div>
+
+          <!-- Service Category Filter -->
+          <div id="serviceFilters" class="flex flex-wrap gap-2" role="group" aria-label="Фильтр услуг">
+            <button
+              type="button"
+              data-service-filter="all"
+              onclick="setServiceFilter('all')"
+              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer"
+            >
+              Все услуги
+            </button>
+            <button
+              type="button"
+              data-service-filter="vet"
+              onclick="setServiceFilter('vet')"
+              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+            >
+              Ветеринария
+            </button>
+            <button
+              type="button"
+              data-service-filter="vaccination"
+              onclick="setServiceFilter('vaccination')"
+              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+            >
+              Вакцинация
+            </button>
+            <button
+              type="button"
+              data-service-filter="consultation"
+              onclick="setServiceFilter('consultation')"
+              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+            >
+              Консультации
+            </button>
+            <button
+              type="button"
+              data-service-filter="grooming"
+              onclick="setServiceFilter('grooming')"
+              class="service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+            >
+              Груминг
+            </button>
+          </div>
+        </div>
+
+        <!-- Services Grid -->
+        <div id="servicesGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- 3. APPOINTMENT BOOKING & MY APPOINTMENTS -->
+    <section id="appointment" class="py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 reveal">
+          <span class="inline-block rounded-full bg-terracotta-100 text-terracotta-600 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
+            Онлайн-запись
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
+            Запись к ветеринару и специалистам
+          </h2>
+          <p class="text-sm sm:text-base text-ink-700 mt-2.5">
+            Укажите ваше имя, телефон, кличку питомца, выберите услугу, удобную дату и свободное время приёма.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          <!-- Booking Form -->
+          <div class="lg:col-span-7 bg-white rounded-[28px] border border-cream-200 p-6 sm:p-8 shadow-card reveal">
+            <form id="appointmentForm" onsubmit="handleAppointmentSubmit(event)" class="space-y-5" novalidate>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="ownerName" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                    Ваше имя <span class="text-terracotta-600">*</span>
+                  </label>
+                  <input
+                    id="ownerName"
+                    name="ownerName"
+                    type="text"
+                    required
+                    placeholder="Например, Анна Соколова"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition"
+                  />
+                  <p id="ownerNameError" class="hidden text-xs text-red-600 mt-1">Введите ваше имя.</p>
+                </div>
+
+                <div>
+                  <label for="ownerPhone" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                    Телефон <span class="text-terracotta-600">*</span>
+                  </label>
+                  <input
+                    id="ownerPhone"
+                    name="ownerPhone"
+                    type="tel"
+                    required
+                    placeholder="+7 (999) 123-45-67"
+                    oninput="formatPhoneInput(this)"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition"
+                  />
+                  <p id="ownerPhoneError" class="hidden text-xs text-red-600 mt-1">Укажите корректный номер телефона.</p>
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="petName" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                    Имя питомца <span class="text-terracotta-600">*</span>
+                  </label>
+                  <input
+                    id="petName"
+                    name="petName"
+                    type="text"
+                    required
+                    placeholder="Например, Барсик или Рекс"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition"
+                  />
+                  <p id="petNameError" class="hidden text-xs text-red-600 mt-1">Введите имя питомца.</p>
+                </div>
+
+                <div>
+                  <label for="petType" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                    Вид питомца
+                  </label>
+                  <select
+                    id="petType"
+                    name="petType"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                  >
+                    <option value="Собака">Собака</option>
+                    <option value="Кошка">Кошка</option>
+                    <option value="Кролик / грызун">Кролик / грызун</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="serviceSelect" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                    Выберите услугу
+                  </label>
+                  <select
+                    id="serviceSelect"
+                    name="serviceSelect"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                  ></select>
+                </div>
+
+                <div>
+                  <label for="specialistSelect" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                    Специалист
+                  </label>
+                  <select
+                    id="specialistSelect"
+                    name="specialistSelect"
+                    class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                  ></select>
+                </div>
+              </div>
+
+              <div>
+                <label for="appointmentDate" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                  Дата приёма <span class="text-terracotta-600">*</span>
+                </label>
+                <input
+                  id="appointmentDate"
+                  name="appointmentDate"
+                  type="date"
+                  required
+                  onchange="renderTimeSlots()"
+                  class="w-full sm:w-64 rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-3 text-sm text-ink-900 transition cursor-pointer"
+                />
+                <p id="appointmentDateError" class="hidden text-xs text-red-600 mt-1">Выберите дату приёма.</p>
+              </div>
+
+              <!-- Time Slots -->
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <label class="block text-xs sm:text-sm font-semibold text-ink-900">
+                    Время приёма <span class="text-terracotta-600">*</span>
+                  </label>
+                  <span class="text-xs text-ink-500">Занятые слоты отмечены серым</span>
+                </div>
+                <div id="timeSlotsGrid" class="grid grid-cols-3 sm:grid-cols-4 gap-2.5"></div>
+                <p id="timeSlotError" class="hidden text-xs text-red-600 mt-1.5">Выберите доступное время приёма.</p>
+              </div>
+
+              <div>
+                <label for="appointmentNotes" class="block text-xs sm:text-sm font-semibold text-ink-900 mb-1.5">
+                  Пожелания или симптомы (необязательно)
+                </label>
+                <textarea
+                  id="appointmentNotes"
+                  name="appointmentNotes"
+                  rows="2"
+                  placeholder="Например: плановый осмотр перед прививкой, боится громких звуков..."
+                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:bg-white focus:outline-none px-4 py-2.5 text-sm text-ink-900 transition resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 hover:bg-sage-700 text-white px-7 py-3.5 text-sm sm:text-base font-semibold shadow-soft transition cursor-pointer"
+              >
+                <span>Подтвердить запись</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </button>
+            </form>
+
+            <!-- Confirmation Banner -->
+            <div id="appointmentConfirmation" class="hidden mt-6 rounded-2xl bg-sage-50 border border-sage-200 p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <span class="inline-block rounded-full bg-sage-600 text-white text-xs font-bold px-3 py-0.5 mb-2">
+                    Запись оформлена
+                  </span>
+                  <h3 id="confTitle" class="font-display font-bold text-base sm:text-lg text-ink-900"></h3>
+                  <p id="confDetails" class="text-xs sm:text-sm text-ink-700 mt-1"></p>
+                </div>
+                <button
+                  type="button"
+                  onclick="document.getElementById('appointmentConfirmation').classList.add('hidden')"
+                  class="text-ink-500 hover:text-ink-900 text-sm font-semibold px-2 py-1 cursor-pointer"
+                  aria-label="Скрыть уведомление"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Active Appointments ("Мои записи") -->
+          <div class="lg:col-span-5 bg-cream-100 rounded-[28px] border border-cream-200 p-6 sm:p-7 reveal">
+            <div class="flex items-center justify-between gap-2 pb-4 border-b border-cream-200">
+              <div>
+                <h3 class="font-display font-bold text-lg sm:text-xl text-ink-900">Мои записи</h3>
+                <p class="text-xs text-ink-500 mt-0.5">Сохраняются в браузере и обновляются мгновенно</p>
+              </div>
+              <span id="appointmentsCountBadge" class="rounded-full bg-white border border-cream-200 px-3 py-1 text-xs font-bold text-sage-700">
+                0
+              </span>
+            </div>
+
+            <div id="appointmentsList" class="mt-4 space-y-3 max-h-[470px] overflow-y-auto custom-scroll pr-1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. POPULAR PRODUCTS & CATALOG WITH FILTERING -->
+    <section id="shop" class="py-16 sm:py-20 bg-cream-100/75 border-y border-cream-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal">
+          <div class="max-w-2xl">
+            <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
+              Зоомагазин PetCare
+            </span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
+              Популярные товары
+            </h2>
+            <p class="text-sm sm:text-base text-ink-700 mt-2.5">
+              Сбалансированные корма, лакомства, лежанки и аксессуары для кошек и собак. Выбирайте категорию и добавляйте товары в корзину.
+            </p>
+          </div>
+
+          <!-- Filter & Sort Controls -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="flex flex-wrap gap-2" role="group" aria-label="Фильтр товаров по виду питомца">
+              <button
+                type="button"
+                data-product-filter="all"
+                onclick="setProductFilter('all')"
+                class="product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer"
+              >
+                Все товары (<span id="countAll">0</span>)
+              </button>
+              <button
+                type="button"
+                data-product-filter="dog"
+                onclick="setProductFilter('dog')"
+                class="product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+              >
+                Для собак (<span id="countDog">0</span>)
+              </button>
+              <button
+                type="button"
+                data-product-filter="cat"
+                onclick="setProductFilter('cat')"
+                class="product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer"
+              >
+                Для кошек (<span id="countCat">0</span>)
+              </button>
+            </div>
+
+            <select
+              id="productSort"
+              onchange="renderProducts()"
+              aria-label="Сортировка товаров"
+              class="rounded-full bg-white border border-cream-200 px-4 py-2 text-xs sm:text-sm font-semibold text-ink-700 focus:outline-none focus:border-sage-600 cursor-pointer"
+            >
+              <option value="popular">Сначала популярные</option>
+              <option value="price-asc">Цена: по возрастанию</option>
+              <option value="price-desc">Цена: по убыванию</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- 5. SPECIALISTS SECTION -->
+    <section id="specialists" class="py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 reveal">
+          <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
+            Команда экспертов
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
+            Наши специалисты
+          </h2>
+          <p class="text-sm sm:text-base text-ink-700 mt-2.5">
+            Внимательные ветеринарные врачи, диагносты и грумеры с многолетней практикой и бережным отношением к животным.
+          </p>
+        </div>
+
+        <div id="specialistsGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- 6. CLIENT REVIEWS SECTION -->
+    <section id="reviews" class="py-16 sm:py-20 bg-cream-100/75 border-y border-cream-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal">
+          <div>
+            <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
+              Истории владельцев
+            </span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
+              Отзывы клиентов
+            </h2>
+            <p class="text-sm sm:text-base text-ink-700 mt-2">
+              Нам доверяют заботу о здоровье и комфорте своих кошек и собак.
+            </p>
+          </div>
+          <button
+            type="button"
+            onclick="toggleReviewForm()"
+            class="self-start md:self-auto inline-flex items-center gap-2 rounded-full bg-white hover:bg-sage-50 text-ink-900 border border-cream-200 hover:border-sage-200 px-5 py-2.5 text-sm font-semibold transition cursor-pointer"
+          >
+            <span>+ Оставить отзыв</span>
+          </button>
+        </div>
+
+        <!-- Add Review Form (Collapsible) -->
+        <div id="reviewFormWrapper" class="hidden mb-8 bg-white rounded-[24px] border border-cream-200 p-6 shadow-card max-w-2xl">
+          <h3 class="font-display font-bold text-lg text-ink-900 mb-4">Поделитесь впечатлением о PetCare</h3>
+          <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="reviewerName" class="block text-xs font-semibold text-ink-900 mb-1">Ваше имя</label>
+                <input
+                  id="reviewerName"
+                  type="text"
+                  required
+                  placeholder="Мария и кот Марсик"
+                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-sm"
+                />
+              </div>
+              <div>
+                <label for="reviewRating" class="block text-xs font-semibold text-ink-900 mb-1">Оценка</label>
+                <select
+                  id="reviewRating"
+                  class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-sm cursor-pointer"
+                >
+                  <option value="5">★★★★★ — Отлично (5)</option>
+                  <option value="4">★★★★☆ — Хорошо (4)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="reviewText" class="block text-xs font-semibold text-ink-900 mb-1">Отзыв</label>
+              <textarea
+                id="reviewText"
+                rows="3"
+                required
+                placeholder="Расскажите о визите к врачу, груминге или заказе товаров..."
+                class="w-full rounded-2xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-4 py-2.5 text-sm resize-none"
+              ></textarea>
+            </div>
+            <div class="flex items-center gap-3">
+              <button
+                type="submit"
+                class="rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 text-sm font-semibold transition cursor-pointer"
+              >
+                Опубликовать отзыв
+              </button>
+              <button
+                type="button"
+                onclick="toggleReviewForm()"
+                class="rounded-full bg-cream-100 hover:bg-cream-200 text-ink-700 px-4 py-2.5 text-sm font-medium transition cursor-pointer"
+              >
+                Отмена
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div id="reviewsGrid" class="grid md:grid-cols-3 gap-5 sm:gap-6"></div>
+      </div>
+    </section>
+
+    <!-- 7. CONTACTS & LOCATION SECTION -->
+    <section id="contacts" class="py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10 reveal">
+          <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-xs font-bold uppercase tracking-wider px-3.5 py-1 mb-3">
+            Как нас найти
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-ink-900 tracking-tight">
+            Контактная информация
+          </h2>
+          <p class="text-sm sm:text-base text-ink-700 mt-2.5">
+            Ждём вас и ваших питомцев в нашем центре заботы PetCare. Удобная парковка у входа и зона ожидания с водой и мисками.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+          <!-- Contact Cards -->
+          <div class="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            <div class="bg-white rounded-3xl border border-cream-200 p-5 shadow-card">
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Адрес центра</p>
+              <p class="font-display font-bold text-base text-ink-900 mt-1">ул. Садовая, д. 24, корп. 1</p>
+              <p class="text-xs sm:text-sm text-ink-500 mt-1">Вход с зелёного двора, парковка для клиентов</p>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-cream-200 p-5 shadow-card">
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Телефон и почта</p>
+              <a href="tel:+78005553421" class="block font-display font-bold text-base text-ink-900 hover:text-sage-600 mt-1 transition">
+                +7 (800) 555-34-21
+              </a>
+              <a href="mailto:hello@petcare-center.ru" class="block text-xs sm:text-sm text-ink-700 hover:text-sage-600 mt-1 transition">
+                hello@petcare-center.ru
+              </a>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-cream-200 p-5 shadow-card sm:col-span-2 lg:col-span-1">
+              <p class="text-xs font-bold uppercase tracking-wider text-sage-700">Режим работы</p>
+              <p class="font-display font-bold text-base text-ink-900 mt-1">Ежедневно с 08:00 до 22:00</p>
+              <p class="text-xs sm:text-sm text-ink-500 mt-1">Ветеринария, груминг и выдача заказов без выходных</p>
+            </div>
+          </div>
+
+          <!-- Visual Map / Center Preview Card -->
+          <div class="lg:col-span-7 rounded-[28px] overflow-hidden bg-sage-50 border border-sage-200 p-6 sm:p-8 flex flex-col justify-between shadow-card relative">
+            <div>
+              <span class="inline-flex items-center gap-2 rounded-full bg-white border border-sage-200 px-3.5 py-1 text-xs font-semibold text-sage-700">
+                <span class="w-2 h-2 rounded-full bg-sage-600"></span>
+                Уютное пространство для животных и владельцев
+              </span>
+              <h3 class="font-display font-extrabold text-xl sm:text-2xl text-ink-900 mt-4">
+                Всё для здоровья и радости питомца в одном месте
+              </h3>
+              <p class="text-sm text-ink-700 mt-2 max-w-xl leading-relaxed">
+                Запишитесь на приём онлайн или соберите заказ в корзине — мы подготовим всё к вашему визиту или доставим прямо до двери.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-sage-200/80 flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=240&q=80"
+                  alt="Две собаки на прогулке"
+                  class="w-14 h-14 rounded-2xl object-cover border border-white shadow-sm"
+                />
+                <div>
+                  <p class="text-sm font-bold text-ink-900">PetCare — Забота о питомцах в одном месте</p>
+                  <p class="text-xs text-ink-500">Предварительная запись и консультации по телефону</p>
+                </div>
+              </div>
+
+              <a
+                href="#appointment"
+                class="inline-flex items-center justify-center rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 text-sm font-semibold transition"
+              >
+                Записаться на прием
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-ink-900 text-cream-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-sage-600 text-white flex items-center justify-center font-display font-extrabold">
+              P
+            </div>
+            <div>
+              <span class="font-display font-extrabold text-lg text-white block leading-none">PetCare</span>
+              <span class="text-xs text-cream-100/70 block mt-1">Забота о питомцах в одном месте</span>
+            </div>
+          </div>
+          <p class="text-sm text-cream-100/75 mt-4 max-w-md leading-relaxed">
+            Центр ветеринарной помощи, груминга и товаров для собак и кошек. Мы создаём спокойный и надёжный сервис для каждого питомца.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider mb-3">Разделы</h4>
+          <ul class="space-y-2 text-sm text-cream-100/75">
+            <li><a href="#services" class="hover:text-white transition">Наши услуги</a></li>
+            <li><a href="#appointment" class="hover:text-white transition">Запись на прием</a></li>
+            <li><a href="#shop" class="hover:text-white transition">Популярные товары</a></li>
+            <li><a href="#specialists" class="hover:text-white transition">Наши специалисты</a></li>
+            <li><a href="#reviews" class="hover:text-white transition">Отзывы клиентов</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider mb-3">Контакты</h4>
+          <ul class="space-y-2 text-sm text-cream-100/75">
+            <li>ул. Садовая, д. 24, корп. 1</li>
+            <li>+7 (800) 555-34-21</li>
+            <li>hello@petcare-center.ru</li>
+            <li>Ежедневно: 08:00–22:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-100/60">
+        <p>© <span id="currentYear">2026</span> PetCare. Все права защищены.</p>
+        <p>Забота о питомцах в одном месте</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer -->
+  <div id="cartOverlay" onclick="closeCartDrawer()" class="fixed inset-0 z-50 bg-ink-900/45 backdrop-blur-xs hidden transition-opacity"></div>
+  <aside
+    id="cartDrawer"
+    aria-label="Корзина товаров"
+    class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-cream-50 border-l border-cream-200 shadow-elevated translate-x-full transition-transform duration-300 flex flex-col"
+  >
+    <!-- Cart Header -->
+    <div class="px-6 py-5 bg-white border-b border-cream-200 flex items-center justify-between">
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-ink-900">Корзина</h3>
+        <p id="cartSubtitle" class="text-xs text-ink-500 mt-0.5">0 товаров</p>
+      </div>
+      <button
+        type="button"
+        onclick="closeCartDrawer()"
+        class="w-9 h-9 rounded-full bg-cream-100 hover:bg-cream-200 text-ink-900 flex items-center justify-center text-sm font-bold transition cursor-pointer"
+        aria-label="Закрыть корзину"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress -->
+    <div class="px-6 py-3 bg-sage-50 border-b border-sage-200/70">
+      <p id="deliveryHint" class="text-xs font-medium text-sage-700"></p>
+      <div class="w-full h-1.5 rounded-full bg-sage-200 overflow-hidden mt-2">
+        <div id="deliveryBar" class="h-full bg-sage-600 transition-all duration-300" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items -->
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto custom-scroll p-6 space-y-4"></div>
+
+    <!-- Cart Footer & Checkout -->
+    <div id="cartFooter" class="p-6 bg-white border-t border-cream-200 space-y-4">
+      <div class="space-y-1.5 text-sm">
+        <div class="flex items-center justify-between text-ink-700">
+          <span>Товары</span>
+          <span id="cartSubtotal">0 ₽</span>
+        </div>
+        <div class="flex items-center justify-between text-ink-700">
+          <span>Доставка</span>
+          <span id="cartDeliveryCost" class="font-semibold text-sage-700">Бесплатно</span>
+        </div>
+        <div class="flex items-center justify-between font-display font-extrabold text-base text-ink-900 pt-2 border-t border-cream-200">
+          <span>Итого</span>
+          <span id="cartTotal">0 ₽</span>
+        </div>
+      </div>
+
+      <!-- Inline Checkout Form -->
+      <form id="checkoutForm" onsubmit="handleCheckout(event)" class="hidden space-y-3 pt-2 border-t border-cream-200">
+        <input
+          id="checkoutName"
+          type="text"
+          required
+          placeholder="Ваше имя"
+          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-xs sm:text-sm"
+        />
+        <input
+          id="checkoutPhone"
+          type="tel"
+          required
+          placeholder="Телефон (+7 (999) 123-45-67)"
+          oninput="formatPhoneInput(this)"
+          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-xs sm:text-sm"
+        />
+        <input
+          id="checkoutAddress"
+          type="text"
+          required
+          placeholder="Адрес доставки или самовывоз"
+          class="w-full rounded-xl bg-cream-50 border border-cream-200 focus:border-sage-600 focus:outline-none px-3.5 py-2.5 text-xs sm:text-sm"
+        />
+        <button
+          type="submit"
+          class="w-full rounded-full bg-sage-600 hover:bg-sage-700 text-white py-3 text-sm font-semibold transition cursor-pointer"
+        >
+          Подтвердить заказ
+        </button>
+      </form>
+
+      <div class="flex items-center gap-2.5">
+        <button
+          id="openCheckoutBtn"
+          type="button"
+          onclick="toggleCheckoutForm()"
+          class="flex-1 rounded-full bg-sage-600 hover:bg-sage-700 text-white py-3 px-4 text-sm font-semibold transition disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer"
+        >
+          Оформить заказ
+        </button>
+        <button
+          id="clearCartBtn"
+          type="button"
+          onclick="clearCart()"
+          class="rounded-full bg-cream-100 hover:bg-red-50 text-ink-700 hover:text-red-700 border border-cream-200 py-3 px-4 text-xs sm:text-sm font-semibold transition disabled:opacity-45 disabled:cursor-not-allowed cursor-pointer"
+        >
+          Очистить
+        </button>
+      </div>
+
+      <!-- Order Success Message -->
+      <div id="orderSuccessBox" class="hidden rounded-2xl bg-sage-50 border border-sage-200 p-4 text-xs sm:text-sm text-ink-900"></div>
+    </div>
+  </aside>
+
+  <!-- Scroll To Top Button -->
+  <button
+    id="scrollTopBtn"
+    type="button"
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    aria-label="Наверх"
+    class="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-white hover:bg-sage-600 text-ink-900 hover:text-white border border-cream-200 shadow-elevated flex items-center justify-center opacity-0 pointer-events-none transition duration-200 cursor-pointer"
+  >
+    ↑
+  </button>
+
+  <!-- Toast Notification -->
+  <div
+    id="toast"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-ink-900 text-white text-xs sm:text-sm font-medium px-5 py-2.5 shadow-elevated opacity-0 pointer-events-none transition-all duration-200"
+  ></div>
+
+  <script>
+    const STORAGE_KEYS = {
+      cart: 'petcare_cart_v1',
+      appointments: 'petcare_appointments_v1',
+      reviews: 'petcare_reviews_v1'
+    };
+
+    const SERVICES = [
+      {
+        id: 'srv-exam',
+        category: 'vet',
+        categoryLabel: 'Ветеринария',
+        title: 'Приём и осмотр ветеринара',
+        description: 'Комплексный осмотр, термометрия, оценка состояния шерсти, ушей, зубов и составление плана здоровья.',
+        duration: '40 мин',
+        price: 1800,
+        image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-dental-lab',
+        category: 'vet',
+        categoryLabel: 'Ветеринария',
+        title: 'Санация ротовой полости и экспресс-анализы',
+        description: 'Ультразвуковая чистка зубов, осмотр дёсен и базовые показатели крови с быстрым результатом.',
+        duration: '50 мин',
+        price: 2900,
+        image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-vax-complex',
+        category: 'vaccination',
+        categoryLabel: 'Вакцинация',
+        title: 'Комплексная вакцинация собак и кошек',
+        description: 'Предварительный осмотр врача, сертифицированная вакцина, отметка в ветпаспорте и рекомендации после прививки.',
+        duration: '30 мин',
+        price: 2200,
+        image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-vax-rabies',
+        category: 'vaccination',
+        categoryLabel: 'Вакцинация',
+        title: 'Вакцинация от бешенства и чипирование',
+        description: 'Регистрация микрочипа в базе и оформление документов для поездок и регулярной защиты питомца.',
+        duration: '30 мин',
+        price: 1950,
+        image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-consult-nutrition',
+        category: 'consultation',
+        categoryLabel: 'Консультации',
+        title: 'Консультация по питанию и весу',
+        description: 'Подбор промышленного рациона или натурального меню с учётом возраста, породы, активности и чувствительности.',
+        duration: '45 мин',
+        price: 1500,
+        image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-consult-behavior',
+        category: 'consultation',
+        categoryLabel: 'Консультации',
+        title: 'Консультация по адаптации и поведению',
+        description: 'Помогаем справиться с тревожностью, страхом приёмов, адаптацией котят и щенков в новом доме.',
+        duration: '45 мин',
+        price: 1700,
+        image: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-groom-dog',
+        category: 'grooming',
+        categoryLabel: 'Груминг',
+        title: 'Комплексный груминг собак',
+        description: 'Мягкое мытьё профессиональной косметикой, бережная сушка, вычёсывание подшёрстка, стрижка и уход за когтями.',
+        duration: '90 мин',
+        price: 2600,
+        image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'srv-groom-cat',
+        category: 'grooming',
+        categoryLabel: 'Груминг',
+        title: 'Экспресс-линька и уход за кошками',
+        description: 'Деликатный уход в тихом кабинете без фенов высокого давления: вычёсывание, гигиена ушей и подстригание когтей.',
+        duration: '60 мин',
+        price: 2100,
+        image: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    const PRODUCTS = [
+      {
+        id: 'prd-dog-food',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Сухой корм с ягнёнком и рисом, 3 кг',
+        subtitle: 'Сбалансированный рацион для взрослых собак всех пород',
+        price: 2450,
+        popularRank: 1,
+        image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-dog-treats',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Натуральные мясные лакомства для тренировок',
+        subtitle: '100% мясо индейки без красителей и консервантов, 180 г',
+        price: 690,
+        popularRank: 3,
+        image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-dog-bed',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Мягкая лежанка с бортиками «Шалфей»',
+        subtitle: 'Съёмный чехол на молнии, гипоаллергенный наполнитель',
+        price: 3290,
+        popularRank: 4,
+        image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-dog-leash',
+        pet: 'dog',
+        petLabel: 'Для собак',
+        title: 'Плетёный поводок и шлейка для прогулок',
+        subtitle: 'Прочная фурнитура и мягкая анатомическая посадка',
+        price: 1590,
+        popularRank: 6,
+        image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-cat-food',
+        pet: 'cat',
+        petLabel: 'Для кошек',
+        title: 'Корм с лососем и бататом для кошек, 1.5 кг',
+        subtitle: 'Для здоровой кожи, блестящей шерсти и пищеварения',
+        price: 1890,
+        popularRank: 2,
+        image: 'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-cat-fountain',
+        pet: 'cat',
+        petLabel: 'Для кошек',
+        title: 'Бесшумный питьевой фонтанчик 2.2 л',
+        subtitle: 'Угольный фильтр и циркуляция свежей воды каждый день',
+        price: 2790,
+        popularRank: 5,
+        image: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-cat-toy',
+        pet: 'cat',
+        petLabel: 'Для кошек',
+        title: 'Набор игрушек с натуральной мятой и перьями',
+        subtitle: 'Для активных игр и снятия скуки в течение дня',
+        price: 640,
+        popularRank: 7,
+        image: 'https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'prd-cat-brush',
+        pet: 'cat',
+        petLabel: 'Для кошек',
+        title: 'Деликатная щётка-пуходерка для вычёсывания',
+        subtitle: 'Мягкие наконечники бережно собирают лишнюю шерсть',
+        price: 980,
+        popularRank: 8,
+        image: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    const SPECIALISTS = [
+      {
+        id: 'doc-elena',
+        name: 'Елена Морозова',
+        role: 'Главный ветеринарный врач, терапевт',
+        experience: 'Стаж 9 лет',
+        bio: 'Специализируется на профилактике, диагностике и вакцинации кошек и собак. Находит подход даже к робким питомцам.',
+        defaultServiceId: 'srv-exam',
+        image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        id: 'doc-artem',
+        name: 'Артём Волков',
+        role: 'Ветеринарный врач, диетолог',
+        experience: 'Стаж 7 лет',
+        bio: 'Помогает подобрать лечебные и повседневные рационы, контролирует вес и сопровождает питомцев с чувствительным пищеварением.',
+        defaultServiceId: 'srv-consult-nutrition',
+        image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        id: 'doc-sofia',
+        name: 'София Лебедева',
+        role: 'Ведущий грумер и специалист по уходу',
+        experience: 'Стаж 6 лет',
+        bio: 'Выполняет породные стрижки, экспресс-линьку и бережный гигиенический уход с использованием мягкой косметики.',
+        defaultServiceId: 'srv-groom-dog',
+        image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        id: 'doc-dmitry',
+        name: 'Дмитрий Орлов',
+        role: 'Врач общей практики и вакцинолог',
+        experience: 'Стаж 8 лет',
+        bio: 'Проводит плановые осмотры, вакцинацию, чипирование и консультации по адаптации животных в семье.',
+        defaultServiceId: 'srv-vax-complex',
+        image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=700&q=80'
+      }
+    ];
+
+    const DEFAULT_REVIEWS = [
+      {
+        id: 'rev-1',
+        author: 'Ольга и пёс Бруно',
+        rating: 5,
+        text: 'Записались на прививку и осмотр через сайт — приняли ровно по времени. Бруно даже не испугался, а в магазине сразу взяли корм и лакомства.'
+      },
+      {
+        id: 'rev-2',
+        author: 'Мария и кошка Луна',
+        rating: 5,
+        text: 'Очень светлый и спокойный центр. Делали экспресс-линьку и взяли питьевой фонтанчик — шерсти дома стало заметно меньше, кошка довольна.'
+      },
+      {
+        id: 'rev-3',
+        author: 'Илья и корги Честер',
+        rating: 5,
+        text: 'Удобно, что всё в одном месте: и консультация врача по питанию, и качественные товары с быстрой доставкой. Обязательно вернёмся.'
+      }
+    ];
+
+    const TIME_SLOTS = [
+      '09:00', '10:00', '11:00', '12:00',
+      '14:00', '15:30', '17:00', '18:30'
+    ];
+
+    let state = {
+      serviceFilter: 'all',
+      productFilter: 'all',
+      selectedTimeSlot: '',
+      cart: loadFromStorage(STORAGE_KEYS.cart, [
+        { productId: 'prd-dog-food', qty: 1 },
+        { productId: 'prd-cat-toy', qty: 1 }
+      ]),
+      appointments: loadFromStorage(STORAGE_KEYS.appointments, []),
+      reviews: loadFromStorage(STORAGE_KEYS.reviews, DEFAULT_REVIEWS)
+    };
+
+    function loadFromStorage(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function saveToStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        // Ignore storage quota errors
+      }
+    }
+
+    function formatRub(amount) {
+      return new Intl.NumberFormat('ru-RU').format(Math.round(amount)) + ' ₽';
+    }
+
+    function formatDateRu(isoDate) {
+      if (!isoDate) return '';
+      const parts = isoDate.split('-');
+      if (parts.length !== 3) return isoDate;
+      return `${parts[2]}.${parts[1]}.${parts[0]}`;
+    }
+
+    function getTodayIso() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2600);
+    }
+
+    function formatPhoneInput(input) {
+      let digits = input.value.replace(/\D/g, '');
+      if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+      if (!digits.startsWith('7') && digits.length > 0) digits = '7' + digits;
+      digits = digits.slice(0, 11);
+
+      let formatted = '';
+      if (digits.length > 0) formatted = '+7';
+      if (digits.length > 1) formatted += ' (' + digits.slice(1, 4);
+      if (digits.length >= 4) formatted += ') ';
+      if (digits.length > 4) formatted += digits.slice(4, 7);
+      if (digits.length > 7) formatted += '-' + digits.slice(7, 9);
+      if (digits.length > 9) formatted += '-' + digits.slice(9, 11);
+
+      input.value = formatted;
+    }
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      const isHidden = menu.classList.contains('hidden');
+
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(isHidden));
+      iconOpen.classList.toggle('hidden', isHidden);
+      iconClose.classList.toggle('hidden', !isHidden);
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+
+    // Services Rendering & Filtering
+    function setServiceFilter(filter) {
+      state.serviceFilter = filter;
+      document.querySelectorAll('.service-filter-btn').forEach((btn) => {
+        const active = btn.dataset.serviceFilter === filter;
+        btn.className = active
+          ? 'service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer'
+          : 'service-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
+      });
+      renderServices();
+    }
+
+    function renderServices() {
+      const grid = document.getElementById('servicesGrid');
+      const filtered = state.serviceFilter === 'all'
+        ? SERVICES
+        : SERVICES.filter((s) => s.category === state.serviceFilter);
+
+      grid.innerHTML = filtered.map((srv) => `
+        <article class="pet-card bg-white rounded-[24px] border border-cream-200 overflow-hidden flex flex-col justify-between shadow-card">
+          <div>
+            <div class="img-zoom aspect-[16/10] bg-cream-100 overflow-hidden relative">
+              <img src="${srv.image}" alt="${srv.title}" class="w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-xs text-sage-700 border border-cream-200 px-3 py-1 text-[11px] font-bold">
+                ${srv.categoryLabel}
+              </span>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-2 text-xs text-ink-500 mb-1.5">
+                <span>Длительность: ${srv.duration}</span>
+              </div>
+              <h3 class="font-display font-bold text-base sm:text-lg text-ink-900 leading-snug">
+                ${srv.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-ink-700 mt-2 leading-relaxed">
+                ${srv.description}
+              </p>
+            </div>
+          </div>
+
+          <div class="px-5 pb-5 pt-3 border-t border-cream-100 flex items-center justify-between gap-3">
+            <span class="font-display font-extrabold text-base sm:text-lg text-ink-900">
+              ${formatRub(srv.price)}
+            </span>
+            <button
+              type="button"
+              onclick="bookService('${srv.id}')"
+              class="rounded-full bg-sage-50 hover:bg-sage-600 text-sage-700 hover:text-white border border-sage-200 px-4 py-2 text-xs sm:text-sm font-semibold transition cursor-pointer"
+            >
+              Записаться
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function bookService(serviceId) {
+      const select = document.getElementById('serviceSelect');
+      select.value = serviceId;
+      document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
+      const srv = SERVICES.find((s) => s.id === serviceId);
+      if (srv) showToast(`Выбрана услуга: ${srv.title}`);
+    }
+
+    function bookWithSpecialist(specialistId) {
+      const spec = SPECIALISTS.find((sp) => sp.id === specialistId);
+      if (spec) {
+        document.getElementById('specialistSelect').value = spec.id;
+        if (spec.defaultServiceId) {
+          document.getElementById('serviceSelect').value = spec.defaultServiceId;
+        }
+        showToast(`Выбран специалист: ${spec.name}`);
+      }
+      document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Populate Form Selects
+    function populateBookingSelects() {
+      const serviceSelect = document.getElementById('serviceSelect');
+      serviceSelect.innerHTML = SERVICES.map(
+        (s) => `<option value="${s.id}">${s.title} — ${formatRub(s.price)}</option>`
+      ).join('');
+
+      const specialistSelect = document.getElementById('specialistSelect');
+      specialistSelect.innerHTML =
+        `<option value="Любой свободный специалист">Любой свободный специалист</option>` +
+        SPECIALISTS.map(
+          (sp) => `<option value="${sp.id}">${sp.name} (${sp.role.split(',')[0]})</option>`
+        ).join('');
+    }
+
+    // Time Slots Rendering
+    function getBookedSlotsForDate(dateStr) {
+      const booked = new Set();
+      if (dateStr === getTodayIso()) {
+        booked.add('10:00');
+        booked.add('15:30');
+      }
+      state.appointments.forEach((app) => {
+        if (app.date === dateStr) {
+          booked.add(app.time);
+        }
+      });
+      return booked;
+    }
+
+    function renderTimeSlots() {
+      const dateVal = document.getElementById('appointmentDate').value;
+      const booked = getBookedSlotsForDate(dateVal);
+      const grid = document.getElementById('timeSlotsGrid');
+
+      if (state.selectedTimeSlot && booked.has(state.selectedTimeSlot)) {
+        state.selectedTimeSlot = '';
+      }
+
+      grid.innerHTML = TIME_SLOTS.map((slot) => {
+        const isBooked = booked.has(slot);
+        const isSelected = state.selectedTimeSlot === slot;
+
+        if (isBooked) {
+          return `
+            <button
+              type="button"
+              disabled
+              class="py-2.5 px-3 rounded-xl text-xs sm:text-sm font-medium bg-cream-100 text-ink-400 border border-cream-200 cursor-not-allowed line-through"
+            >
+              ${slot}
+            </button>
+          `;
+        }
+
+        const cls = isSelected
+          ? 'py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold bg-sage-600 text-white border border-sage-600 shadow-xs transition cursor-pointer'
+          : 'py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold bg-cream-50 hover:bg-sage-50 text-ink-900 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
+
+        return `
+          <button
+            type="button"
+            onclick="selectTimeSlot('${slot}')"
+            class="${cls}"
+          >
+            ${slot}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectTimeSlot(slot) {
+      state.selectedTimeSlot = slot;
+      document.getElementById('timeSlotError').classList.add('hidden');
+      renderTimeSlots();
+    }
+
+    // Appointment Form Submit
+    function handleAppointmentSubmit(e) {
+      e.preventDefault();
+
+      const ownerNameEl = document.getElementById('ownerName');
+      const ownerPhoneEl = document.getElementById('ownerPhone');
+      const petNameEl = document.getElementById('petName');
+      const petTypeEl = document.getElementById('petType');
+      const serviceEl = document.getElementById('serviceSelect');
+      const specialistEl = document.getElementById('specialistSelect');
+      const dateEl = document.getElementById('appointmentDate');
+      const notesEl = document.getElementById('appointmentNotes');
+
+      const nameErr = document.getElementById('ownerNameError');
+      const phoneErr = document.getElementById('ownerPhoneError');
+      const petErr = document.getElementById('petNameError');
+      const dateErr = document.getElementById('appointmentDateError');
+      const slotErr = document.getElementById('timeSlotError');
+
+      let valid = true;
+      [nameErr, phoneErr, petErr, dateErr, slotErr].forEach((el) => el.classList.add('hidden'));
+
+      const ownerName = ownerNameEl.value.trim();
+      const phoneDigits = ownerPhoneEl.value.replace(/\D/g, '');
+      const petName = petNameEl.value.trim();
+      const dateVal = dateEl.value;
+
+      if (!ownerName) {
+        nameErr.classList.remove('hidden');
+        valid = false;
+      }
+      if (phoneDigits.length < 10) {
+        phoneErr.classList.remove('hidden');
+        valid = false;
+      }
+      if (!petName) {
+        petErr.classList.remove('hidden');
+        valid = false;
+      }
+      if (!dateVal) {
+        dateErr.classList.remove('hidden');
+        valid = false;
+      }
+      if (!state.selectedTimeSlot) {
+        slotErr.classList.remove('hidden');
+        valid = false;
+      }
+
+      if (!valid) {
+        showToast('Проверьте заполнение полей формы записи');
+        return;
+      }
+
+      const srv = SERVICES.find((s) => s.id === serviceEl.value) || SERVICES[0];
+      const specObj = SPECIALISTS.find((sp) => sp.id === specialistEl.value);
+      const specialistLabel = specObj ? specObj.name : specialistEl.value;
+
+      const appointment = {
+        id: 'PC-' + Math.floor(1000 + Math.random() * 9000),
+        ownerName,
+        ownerPhone: ownerPhoneEl.value.trim(),
+        petName,
+        petType: petTypeEl.value,
+        serviceTitle: srv.title,
+        servicePrice: srv.price,
+        specialist: specialistLabel,
+        date: dateVal,
+        time: state.selectedTimeSlot,
+        notes: notesEl.value.trim()
+      };
+
+      state.appointments.unshift(appointment);
+      saveToStorage(STORAGE_KEYS.appointments, state.appointments);
+
+      const confBox = document.getElementById('appointmentConfirmation');
+      document.getElementById('confTitle').textContent =
+        `Питомец ${appointment.petName} записан на ${formatDateRu(appointment.date)} в ${appointment.time}`;
+      document.getElementById('confDetails').textContent =
+        `Услуга: ${appointment.serviceTitle} (${formatRub(appointment.servicePrice)}) • Специалист: ${appointment.specialist} • № талона: ${appointment.id}`;
+      confBox.classList.remove('hidden');
+
+      state.selectedTimeSlot = '';
+      notesEl.value = '';
+      renderTimeSlots();
+      renderAppointments();
+      showToast('Запись успешно подтверждена');
+    }
+
+    function cancelAppointment(id) {
+      state.appointments = state.appointments.filter((a) => a.id !== id);
+      saveToStorage(STORAGE_KEYS.appointments, state.appointments);
+      renderTimeSlots();
+      renderAppointments();
+      showToast('Запись отменена');
+    }
+
+    function renderAppointments() {
+      const list = document.getElementById('appointmentsList');
+      const badge = document.getElementById('appointmentsCountBadge');
+      badge.textContent = String(state.appointments.length);
+
+      if (state.appointments.length === 0) {
+        list.innerHTML = `
+          <div class="rounded-2xl bg-white border border-cream-200 p-6 text-center">
+            <p class="text-sm font-semibold text-ink-900">Пока нет активных записей</p>
+            <p class="text-xs text-ink-500 mt-1">Заполните форму слева, чтобы забронировать приём к врачу или грумеру.</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = state.appointments.map((app) => `
+        <div class="rounded-2xl bg-white border border-cream-200 p-4 shadow-xs space-y-2.5">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="inline-block rounded-full bg-sage-100 text-sage-700 text-[11px] font-bold px-2.5 py-0.5">
+                ${formatDateRu(app.date)} • ${app.time}
+              </span>
+              <h4 class="font-display font-bold text-sm sm:text-base text-ink-900 mt-1">
+                ${app.petName} <span class="font-normal text-xs text-ink-500">(${app.petType})</span>
+              </h4>
+            </div>
+            <span class="text-[11px] font-semibold text-ink-400">#${app.id}</span>
+          </div>
+
+          <p class="text-xs sm:text-sm font-medium text-ink-700">${app.serviceTitle}</p>
+          <p class="text-xs text-ink-500">Специалист: ${app.specialist} • Владелец: ${app.ownerName}</p>
+          ${app.notes ? `<p class="text-xs text-ink-500 italic">«${app.notes}»</p>` : ''}
+
+          <div class="pt-2 border-t border-cream-100 flex items-center justify-between">
+            <span class="text-xs sm:text-sm font-bold text-ink-900">${formatRub(app.servicePrice)}</span>
+            <button
+              type="button"
+              onclick="cancelAppointment('${app.id}')"
+              class="text-xs font-semibold text-red-600 hover:text-red-700 transition cursor-pointer"
+            >
+              Отменить запись
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Products Rendering, Filtering & Sorting
+    function setProductFilter(filter) {
+      state.productFilter = filter;
+      document.querySelectorAll('.product-filter-btn').forEach((btn) => {
+        const active = btn.dataset.productFilter === filter;
+        btn.className = active
+          ? 'product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sage-600 text-white transition cursor-pointer'
+          : 'product-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-ink-700 border border-cream-200 hover:border-sage-200 transition cursor-pointer';
+      });
+      renderProducts();
+    }
+
+    function updateProductCounts() {
+      document.getElementById('countAll').textContent = String(PRODUCTS.length);
+      document.getElementById('countDog').textContent = String(PRODUCTS.filter((p) => p.pet === 'dog').length);
+      document.getElementById('countCat').textContent = String(PRODUCTS.filter((p) => p.pet === 'cat').length);
+    }
+
+    function getCartItemQty(productId) {
+      const found = state.cart.find((item) => item.productId === productId);
+      return found ? found.qty : 0;
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const sortVal = document.getElementById('productSort').value;
+
+      let list = state.productFilter === 'all'
+        ? [...PRODUCTS]
+        : PRODUCTS.filter((p) => p.pet === state.productFilter);
+
+      if (sortVal === 'price-asc') {
+        list.sort((a, b) => a.price - b.price);
+      } else if (sortVal === 'price-desc') {
+        list.sort((a, b) => b.price - a.price);
+      } else {
+        list.sort((a, b) => a.popularRank - b.popularRank);
+      }
+
+      grid.innerHTML = list.map((prd) => {
+        const qty = getCartItemQty(prd.id);
+        const badgeStyle = prd.pet === 'dog'
+          ? 'bg-terracotta-100 text-terracotta-600'
+          : 'bg-sage-100 text-sage-700';
+
+        const actionHtml = qty > 0
+          ? `
+            <div class="inline-flex items-center rounded-full bg-sage-600 text-white overflow-hidden">
+              <button
+                type="button"
+                onclick="changeCartQty('${prd.id}', -1)"
+                class="px-3 py-1.5 hover:bg-sage-700 text-sm font-bold transition cursor-pointer"
+                aria-label="Уменьшить количество"
+              >−</button>
+              <span class="px-2.5 text-xs sm:text-sm font-bold">${qty}</span>
+              <button
+                type="button"
+                onclick="changeCartQty('${prd.id}', 1)"
+                class="px-3 py-1.5 hover:bg-sage-700 text-sm font-bold transition cursor-pointer"
+                aria-label="Увеличить количество"
+              >+</button>
+            </div>
+          `
+          : `
+            <button
+              type="button"
+              onclick="addToCart('${prd.id}')"
+              class="rounded-full bg-sage-600 hover:bg-sage-700 text-white px-4 py-2 text-xs sm:text-sm font-semibold transition cursor-pointer"
+            >
+              В корзину
+            </button>
+          `;
+
+        return `
+          <article class="pet-card bg-white rounded-[24px] border border-cream-200 overflow-hidden flex flex-col justify-between shadow-card">
+            <div>
+              <div class="img-zoom aspect-[4/3] bg-cream-100 overflow-hidden relative">
+                <img src="${prd.image}" alt="${prd.title}" class="w-full h-full object-cover" loading="lazy" />
+                <span class="absolute top-3 left-3 rounded-full ${badgeStyle} px-3 py-1 text-[11px] font-bold">
+                  ${prd.petLabel}
+                </span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-display font-bold text-base text-ink-900 leading-snug">
+                  ${prd.title}
+                </h3>
+                <p class="text-xs sm:text-sm text-ink-500 mt-1.5 leading-relaxed">
+                  ${prd.subtitle}
+                </p>
+              </div>
+            </div>
+
+            <div class="px-5 pb-5 pt-3 border-t border-cream-100 flex items-center justify-between gap-2">
+              <span class="font-display font-extrabold text-base sm:text-lg text-ink-900">
+                ${formatRub(prd.price)}
+              </span>
+              ${actionHtml}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Cart Operations
+    function addToCart(productId) {
+      const existing = state.cart.find((item) => item.productId === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        state.cart.push({ productId, qty: 1 });
+      }
+      saveToStorage(STORAGE_KEYS.cart, state.cart);
+      renderProducts();
+      renderCart();
+      const prd = PRODUCTS.find((p) => p.id === productId);
+      if (prd) showToast(`Добавлено в корзину: ${prd.title}`);
+    }
+
+    function changeCartQty(productId, delta) {
+      const idx = state.cart.findIndex((item) => item.productId === productId);
+      if (idx === -1) return;
+      state.cart[idx].qty += delta;
+      if (state.cart[idx].qty <= 0) {
+        state.cart.splice(idx, 1);
+      }
+      saveToStorage(STORAGE_KEYS.cart, state.cart);
+      renderProducts();
+      renderCart();
+    }
+
+    function removeFromCart(productId) {
+      state.cart = state.cart.filter((item) => item.productId !== productId);
+      saveToStorage(STORAGE_KEYS.cart, state.cart);
+      renderProducts();
+      renderCart();
+      showToast('Товар удалён из корзины');
+    }
+
+    function clearCart() {
+      if (state.cart.length === 0) return;
+      state.cart = [];
+      saveToStorage(STORAGE_KEYS.cart, state.cart);
+      document.getElementById('checkoutForm').classList.add('hidden');
+      renderProducts();
+      renderCart();
+      showToast('Корзина очищена');
+    }
+
+    function openCartDrawer() {
+      document.getElementById('cartOverlay').classList.remove('hidden');
+      requestAnimationFrame(() => {
+        document.getElementById('cartDrawer').classList.remove('translate-x-full');
+      });
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cartDrawer').classList.add('translate-x-full');
+      setTimeout(() => {
+        document.getElementById('cartOverlay').classList.add('hidden');
+      }, 280);
+    }
+
+    function toggleCheckoutForm() {
+      if (state.cart.length === 0) return;
+      document.getElementById('orderSuccessBox').classList.add('hidden');
+      document.getElementById('checkoutForm').classList.toggle('hidden');
+    }
+
+    function handleCheckout(e) {
+      e.preventDefault();
+      if (state.cart.length === 0) return;
+
+      const name = document.getElementById('checkoutName').value.trim();
+      const phone = document.getElementById('checkoutPhone').value.trim();
+      const address = document.getElementById('checkoutAddress').value.trim();
+
+      const subtotal = state.cart.reduce((sum, item) => {
+        const prd = PRODUCTS.find((p) => p.id === item.productId);
+        return sum + (prd ? prd.price * item.qty : 0);
+      }, 0);
+
+      const deliveryCost = subtotal >= 3000 ? 0 : 290;
+      const total = subtotal + deliveryCost;
+      const orderNum = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
+
+      state.cart = [];
+      saveToStorage(STORAGE_KEYS.cart, state.cart);
+      document.getElementById('checkoutForm').reset();
+      document.getElementById('checkoutForm').classList.add('hidden');
+
+      const successBox = document.getElementById('orderSuccessBox');
+      successBox.innerHTML = `
+        <p class="font-display font-bold text-sage-700">Заказ №${orderNum} оформлен!</p>
+        <p class="text-xs text-ink-700 mt-1">
+          Спасибо, ${name}. Сумма к оплате: <strong>${formatRub(total)}</strong>. Менеджер свяжется по номеру ${phone} для уточнения доставки по адресу: ${address}.
+        </p>
+      `;
+      successBox.classList.remove('hidden');
+
+      renderProducts();
+      renderCart();
+      showToast(`Заказ №${orderNum} принят`);
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge = document.getElementById('headerCartBadge');
+      const subtitle = document.getElementById('cartSubtitle');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const deliveryCostEl = document.getElementById('cartDeliveryCost');
+      const totalEl = document.getElementById('cartTotal');
+      const hintEl = document.getElementById('deliveryHint');
+      const barEl = document.getElementById('deliveryBar');
+      const checkoutBtn = document.getElementById('openCheckoutBtn');
+      const clearBtn = document.getElementById('clearCartBtn');
+
+      const totalCount = state.cart.reduce((acc, item) => acc + item.qty, 0);
+      badge.textContent = String(totalCount);
+      subtitle.textContent = totalCount === 0
+        ? 'Пока пусто'
+        : `${totalCount} шт. в корзине`;
+
+      const subtotal = state.cart.reduce((sum, item) => {
+        const prd = PRODUCTS.find((p) => p.id === item.productId);
+        return sum + (prd ? prd.price * item.qty : 0);
+      }, 0);
+
+      const freeThreshold = 3000;
+      const pct = Math.min(100, Math.round((subtotal / freeThreshold) * 100));
+      barEl.style.width = `${pct}%`;
+
+      if (subtotal >= freeThreshold) {
+        hintEl.textContent = '✓ Бесплатная доставка активирована';
+      } else {
+        hintEl.textContent = `До бесплатной доставки осталось ${formatRub(freeThreshold - subtotal)}`;
+      }
+
+      const deliveryCost = subtotal === 0 || subtotal >= freeThreshold ? 0 : 290;
+      const grandTotal = subtotal + deliveryCost;
+
+      subtotalEl.textContent = formatRub(subtotal);
+      deliveryCostEl.textContent = subtotal === 0 ? '—' : (deliveryCost === 0 ? 'Бесплатно' : formatRub(deliveryCost));
+      totalEl.textContent = formatRub(grandTotal);
+
+      checkoutBtn.disabled = state.cart.length === 0;
+      clearBtn.disabled = state.cart.length === 0;
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 px-4">
+            <p class="font-display font-bold text-base text-ink-900">В корзине пока нет товаров</p>
+            <p class="text-xs sm:text-sm text-ink-500 mt-1">Выберите корм, лакомства или аксессуары в каталоге «Популярные товары».</p>
+            <button
+              type="button"
+              onclick="closeCartDrawer(); document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });"
+              class="mt-4 rounded-full bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer"
+            >
+              Перейти к товарам
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = state.cart.map((item) => {
+        const prd = PRODUCTS.find((p) => p.id === item.productId);
+        if (!prd) return '';
+        const lineTotal = prd.price * item.qty;
+
+        return `
+          <div class="flex gap-3.5 bg-white rounded-2xl border border-cream-200 p-3.5 shadow-xs">
+            <img src="${prd.image}" alt="${prd.title}" class="w-16 h-16 rounded-xl object-cover shrink-0 bg-cream-100" />
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="font-display font-bold text-xs sm:text-sm text-ink-900 leading-snug line-clamp-2">
+                  ${prd.title}
+                </h4>
+                <button
+                  type="button"
+                  onclick="removeFromCart('${prd.id}')"
+                  class="text-xs text-ink-400 hover:text-red-600 font-semibold shrink-0 cursor-pointer"
+                  aria-label="Удалить ${prd.title}"
+                >
+                  Удалить
+                </button>
+              </div>
+              <p class="text-[11px] text-ink-500 mt-0.5">${formatRub(prd.price)} за шт.</p>
+
+              <div class="flex items-center justify-between mt-2.5">
+                <div class="inline-flex items-center rounded-full bg-cream-100 border border-cream-200">
+                  <button
+                    type="button"
+                    onclick="changeCartQty('${prd.id}', -1)"
+                    class="w-7 h-7 rounded-full hover:bg-cream-200 text-ink-900 font-bold text-xs flex items-center justify-center cursor-pointer"
+                    aria-label="Уменьшить"
+                  >−</button>
+                  <span class="px-2.5 text-xs font-bold text-ink-900">${item.qty}</span>
+                  <button
+                    type="button"
+                    onclick="changeCartQty('${prd.id}', 1)"
+                    class="w-7 h-7 rounded-full hover:bg-cream-200 text-ink-900 font-bold text-xs flex items-center justify-center cursor-pointer"
+                    aria-label="Увеличить"
+                  >+</button>
+                </div>
+                <span class="font-display font-bold text-xs sm:text-sm text-ink-900">${formatRub(lineTotal)}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Specialists Rendering
+    function renderSpecialists() {
+      const grid = document.getElementById('specialistsGrid');
+      grid.innerHTML = SPECIALISTS.map((sp) => `
+        <article class="pet-card bg-white rounded-[24px] border border-cream-200 overflow-hidden flex flex-col justify-between shadow-card">
+          <div>
+            <div class="img-zoom aspect-[4/4] bg-cream-100 overflow-hidden">
+              <img src="${sp.image}" alt="${sp.name}" class="w-full h-full object-cover object-top" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <span class="inline-block rounded-full bg-sage-50 text-sage-700 border border-sage-200 px-3 py-0.5 text-[11px] font-bold mb-2">
+                ${sp.experience}
+              </span>
+              <h3 class="font-display font-bold text-lg text-ink-900">${sp.name}</h3>
+              <p class="text-xs font-semibold text-sage-700 mt-0.5">${sp.role}</p>
+              <p class="text-xs sm:text-sm text-ink-700 mt-2.5 leading-relaxed">${sp.bio}</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5">
+            <button
+              type="button"
+              onclick="bookWithSpecialist('${sp.id}')"
+              class="w-full rounded-full bg-cream-100 hover:bg-sage-600 text-ink-900 hover:text-white border border-cream-200 py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer"
+            >
+              Записаться к специалисту
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Reviews Rendering & Submission
+    function renderReviews() {
+      const grid = document.getElementById('reviewsGrid');
+      grid.innerHTML = state.reviews.map((rev) => {
+        const stars = '★'.repeat(rev.rating) + '☆'.repeat(Math.max(0, 5 - rev.rating));
+        return `
+          <article class="bg-white rounded-[24px] border border-cream-200 p-6 shadow-card flex flex-col justify-between">
+            <div>
+              <div class="text-amber-500 text-sm tracking-wider mb-3" aria-label="Оценка ${rev.rating} из 5">${stars}</div>
+              <p class="text-sm text-ink-700 leading-relaxed">«${rev.text}»</p>
+            </div>
+            <p class="font-display font-bold text-sm text-ink-900 mt-5 pt-3 border-t border-cream-100">
+              ${rev.author}
+            </p>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleReviewForm() {
+      document.getElementById('reviewFormWrapper').classList.toggle('hidden');
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const author = document.getElementById('reviewerName').value.trim();
+      const rating = Number(document.getElementById('reviewRating').value) || 5;
+      const text = document.getElementById('reviewText').value.trim();
+      if (!author || !text) return;
+
+      state.reviews.unshift({
+        id: 'rev-' + Date.now(),
+        author,
+        rating,
+        text
+      });
+      saveToStorage(STORAGE_KEYS.reviews, state.reviews);
+      renderReviews();
+      document.getElementById('reviewForm').reset();
+      document.getElementById('reviewFormWrapper').classList.add('hidden');
+      showToast('Спасибо! Ваш отзыв опубликован');
+    }
+
+    // Scroll Reveal & Scroll-to-Top
+    function initScrollEffects() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      const topBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener(
+        'scroll',
+        () => {
+          if (window.scrollY > 420) {
+            topBtn.classList.remove('opacity-0', 'pointer-events-none');
+            topBtn.classList.add('opacity-100');
+          } else {
+            topBtn.classList.remove('opacity-100');
+            topBtn.classList.add('opacity-0', 'pointer-events-none');
+          }
+        },
+        { passive: true }
+      );
+    }
+
+    // Keyboard Escape Handler
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCartDrawer();
+        closeMobileMenu();
+      }
+    });
+
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = String(new Date().getFullYear());
+
+      const dateInput = document.getElementById('appointmentDate');
+      const today = getTodayIso();
+      dateInput.min = today;
+      dateInput.value = today;
+
+      populateBookingSelects();
+      renderServices();
+      renderTimeSlots();
+      renderAppointments();
+      updateProductCounts();
+      renderProducts();
+      renderCart();
+      renderSpecialists();
+      renderReviews();
+      initScrollEffects();
+    });
+  </script>
+</body>
+</html>
